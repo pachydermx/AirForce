@@ -1,0 +1,18 @@
+body{
+    background: rgb(30, 30, 30);
+}
+
+.object {
+    position: absolute;
+}
+
+.self {
+    width: 60px;
+    height: 80px;
+    background: white;
+}
+
+
+#console{
+    color: white;
+}
