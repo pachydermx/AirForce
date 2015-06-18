@@ -12,6 +12,11 @@ body{
     background: white;
 }
 
+.bullet {
+    background: yellow;
+    width: 5px;
+    height: 20px;
+}
 
 #console{
     color: white;

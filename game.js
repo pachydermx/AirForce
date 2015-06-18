@@ -1,9 +1,12 @@
 var objects = [];
-var keyMap = {87: false, 83: false, 65: false, 68:false};
+var keyMap = {87: false, 83: false, 65: false, 68:false, 74: false};
 // w - 87, s - 83, a - 65, d - 68
+// j - 74
 var frameTimer;
-var frameRate = 30;
+var frameRate = 60;
 var player;
+var size = [400, 640];
+var game;
 
 $(document).ready(function () {
     $(window).keydown( function (e) {
@@ -17,7 +20,10 @@ $(document).ready(function () {
     });
     
     // configure
-    player = new player($("#player"));
+    game = $("#game");
+    player = new player();
+    player.init($("#player"));
+    
     
     start_loop();
     
@@ -43,4 +49,11 @@ function step() {
         direction[0] = 1;
     }
     player.move(direction[0], direction[1]);
+    if (keyMap[74]) {
+        player.fire();
+    }
+    // move objects
+    for (var i in objects) {
+        objects[i].step();
+    }
 }
