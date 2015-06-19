@@ -4,6 +4,7 @@ function unit() {
     this.y = 0;
     this.speed = [0, 0];
     this.auto_delete = true;
+    this.disabled = false;
     
     this.init = function (dom) {
         this.dom = dom;
@@ -26,16 +27,16 @@ function unit() {
     };
     
     this.fire = function () {
-        var new_index = objects.length;
-        game.append("<div id='bullet_" + new_index + "' class='bullet object'></div>");
-        objects.push(new bullet());
-        objects[new_index].x = this.x + this.width / 2;
-        objects[new_index].y = this.y;
-        objects[new_index].init($("#bullet_" + new_index));
+        var new_bullet = new bullet();
+        var new_id = objects.add(new_bullet);
+        game.append("<div id='bullet_" + new_id + "' class='bullet object'></div>");
+        objects.items[new_id].x = this.x + this.width / 2;
+        objects.items[new_id].y = this.y;
+        objects.items[new_id].init($("#bullet_" + new_id));
     }
     
     this.delete = function () {
-        // TODO
-        
+        this.dom.remove();
+        objects.remove(this.index);
     };
 }

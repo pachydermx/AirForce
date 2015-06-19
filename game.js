@@ -1,4 +1,4 @@
-var objects = [];
+var objects = new objectList();
 var keyMap = {87: false, 83: false, 65: false, 68:false, 74: false};
 // w - 87, s - 83, a - 65, d - 68
 // j - 74
@@ -53,7 +53,7 @@ function step() {
         player.fire();
     }
     // move objects
-    for (var i in objects) {
-        objects[i].step();
+    for (var i in objects.items) {
+        objects.items[i].step();
     }
 }

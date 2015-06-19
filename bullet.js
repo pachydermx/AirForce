@@ -1,5 +1,5 @@
 function bullet () {
-    this.speed = [0, -8];
+    this.speed = [0, -16];
 }
 
 bullet.prototype = new unit();
