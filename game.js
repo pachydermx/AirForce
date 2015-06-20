@@ -60,7 +60,7 @@ function step() {
     }
     // add enemy
     if (counter % enemy_freq == 0){
-        //add_enemy();
+        add_enemy();
     }
     // counter
     counter++;
@@ -70,6 +70,7 @@ function add_enemy () {
     var new_enemy = new enemy();
     var new_id = objects.add(new_enemy);
     game.append("<div id='enemy_" + new_id + "' class='enemy object'></div>");
+    // random
     objects.items[new_id].x = 100;
     objects.items[new_id].y = 50;
     objects.items[new_id].init($("#enemy_" + new_id));

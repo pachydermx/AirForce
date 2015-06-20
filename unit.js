@@ -16,13 +16,18 @@ function unit() {
     this.step = function () {
         var tmpX = this.x + this.speed[0];
         var tmpY = this.y + this.speed[1];
-        //console.log(tmpX < -this.width , tmpY < -this.height , tmpX > size[0] , tmpY > size[1]);
-        if (tmpX < -this.width || tmpY < -this.height || tmpX > size[0] || tmpY > size[1]) {
-            if (this.auto_delete) {
-                this.delete();
-            }
+        
+        // border check
+        if (tmpX < -this.width || tmpX > size[0]) {
             if (this.bounce) {
                 this.speed[0] *= -1;
+            } else {
+                this.delete();
+            }
+        }
+        if (tmpY < -this.height || tmpY > size[1]) {
+            if (this.auto_delete) {
+                this.delete();
             }
         } else {
             this.dom.css("left", tmpX);
@@ -30,6 +35,8 @@ function unit() {
             this.x = tmpX;
             this.y = tmpY;
         }
+        
+        // collusion check
     };
     
     this.fire = function () {
