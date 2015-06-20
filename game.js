@@ -4,9 +4,11 @@ var keyMap = {87: false, 83: false, 65: false, 68:false, 74: false};
 // j - 74
 var frameTimer;
 var frameRate = 60;
+var counter = 0;
 var player;
 var size = [400, 640];
 var game;
+var enemy_freq = 100;
 
 $(document).ready(function () {
     $(window).keydown( function (e) {
@@ -56,4 +58,20 @@ function step() {
     for (var i in objects.items) {
         objects.items[i].step();
     }
+    // add enemy
+    if (counter % enemy_freq == 0){
+        //add_enemy();
+    }
+    // counter
+    counter++;
 }
+
+function add_enemy () {
+    var new_enemy = new enemy();
+    var new_id = objects.add(new_enemy);
+    game.append("<div id='enemy_" + new_id + "' class='enemy object'></div>");
+    objects.items[new_id].x = 100;
+    objects.items[new_id].y = 50;
+    objects.items[new_id].init($("#enemy_" + new_id));
+}
+    
