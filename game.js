@@ -70,6 +70,8 @@ function step() {
     for (var i in playerBullets.items) {
         playerBullets.items[i].step();
     }
+    // check hit
+    player.hit_check();
            
     // add enemy
     if (counter % enemy_freq == 0){
@@ -88,4 +90,12 @@ function add_enemy () {
     enemys.items[new_id].y = 50;
     enemys.items[new_id].init($("#enemy_" + new_id), enemys);
 }
+
+function setScore (new_score) {
+    score = new_score;
+    $("#score_display").text(score);
+}
     
+function gameOver () {
+    alert("Game Over");
+}

@@ -3,6 +3,9 @@ function player () {
     this.speed = 15;
     this.class_name = "player";
     
+    this.maxHealth = 4;
+    this.health = this.maxHealth;
+    
     this.fireInterval = 5;
     this.fireCounter = 0;
     
@@ -33,7 +36,25 @@ function player () {
         this.fireCounter++;
     }
     
+    this.hit_check = function () {
+        for (var i in enemys.items){
+            if (this.collusion_check(enemys.items[i])){
+                this.hit();
+                enemys.items[i].delete();
+                // display
+                $("#health_bar").css("width", (this.health / this.maxHealth) * $("#health_display").width());
+            }
+        }
+    }
     
+    this.delete = function () {
+        gameOver();
+        this.dom.remove();
+        this.x = 0;
+        this.y = 0;
+        this.width = 0;
+        this.height = 0;
+    }
 }
 
 player.prototype = new unit();

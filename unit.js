@@ -7,6 +7,8 @@ function unit() {
     this.disabled = false;
     this.bounce = false;
     
+    this.hitTimer = -1;
+    
     this.init = function (dom, list) {
         // basic data
         this.dom = dom;
@@ -38,6 +40,13 @@ function unit() {
             this.y = tmpY;
         }
         
+        if (this.hitTimer == 0){
+            this.dom.removeClass("hit");
+            this.hitTimer = -1;
+        } else if (this.hitTimer > 0){
+            this.hitTimer--;
+        }
+        
     };
     
     this.collusion_check = function (target) {
@@ -51,6 +60,8 @@ function unit() {
     }
     
     this.hit = function () {
+        this.dom.addClass("hit");
+        this.hitTimer = 10;
         this.health--;
         if (this.health <= 0){
             this.delete();

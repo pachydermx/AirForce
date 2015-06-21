@@ -12,7 +12,7 @@ function enemy () {
                 this.hit();
                 playerBullets.items[i].delete();
                 // calc score
-                score += this.point;
+                setScore(score + this.point);
                 // return result
                 result = true;
             }
