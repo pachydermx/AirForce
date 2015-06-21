@@ -1,5 +1,5 @@
 function unit() {
-    var dom, width, height, health, list, class_name;
+    var dom, width, height, health, list, class_name, point;
     this.x = 0;
     this.y = 0;
     this.speed = [0, 0];
@@ -41,7 +41,6 @@ function unit() {
     };
     
     this.collusion_check = function (target) {
-        console.log("check");
         var deltaX = target.x - this.x;
         var deltaY = target.y - this.y;
         if ( deltaX > - target.width && deltaX < this.width && deltaY > - target.height && deltaY < this.height ) {
@@ -50,6 +49,14 @@ function unit() {
             return false;
         }
     }
+    
+    this.hit = function () {
+        this.health--;
+        if (this.health <= 0){
+            this.delete();
+        }
+    }
+    
     this.delete = function () {
         this.dom.remove();
         this.list.remove(this.index);

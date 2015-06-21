@@ -3,6 +3,9 @@ function player () {
     this.speed = 15;
     this.class_name = "player";
     
+    this.fireInterval = 5;
+    this.fireCounter = 0;
+    
     this.move = function (rateX, rateY) {
         this.x += rateX * this.speed;
         this.y += rateY * this.speed;
@@ -19,12 +22,15 @@ function player () {
     };
     
     this.fire = function () {
-        var new_bullet = new bullet();
-        var new_id = playerBullets.add(new_bullet);
-        game.append("<div id='bullet_" + new_id + "' class='bullet object'></div>");
-        playerBullets.items[new_id].x = this.x + this.width / 2;
-        playerBullets.items[new_id].y = this.y;
-        playerBullets.items[new_id].init($("#bullet_" + new_id), playerBullets);
+        if (this.fireCounter % this.fireInterval == 0){
+            var new_bullet = new bullet();
+            var new_id = playerBullets.add(new_bullet);
+            game.append("<div id='bullet_" + new_id + "' class='bullet object'></div>");
+            playerBullets.items[new_id].x = this.x + this.width / 2;
+            playerBullets.items[new_id].y = this.y;
+            playerBullets.items[new_id].init($("#bullet_" + new_id), playerBullets);
+        }
+        this.fireCounter++;
     }
     
     

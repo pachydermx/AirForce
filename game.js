@@ -11,6 +11,7 @@ var player;
 var size = [400, 640];
 var game;
 var enemy_freq = 200;
+var score = 0;
 
 $(document).ready(function () {
     $(window).keydown( function (e) {
@@ -58,12 +59,12 @@ function step() {
     }
     // move enemys
     for (var i in enemys.items) {
-        enemys.items[i].step();
-        /*
-        if(enemys.items[i].collusion_check(player)){
-            enemys.items[i].delete();
+        try {
+            enemys.items[i].step();
+            enemys.items[i].hit_check();
+        } catch (error) {
+            //console.log(error);
         }
-        */
     }
     // move bullets
     for (var i in playerBullets.items) {
