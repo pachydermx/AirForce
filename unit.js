@@ -1,5 +1,5 @@
 function unit() {
-    var dom, width, height, health;
+    var dom, width, height, health, list, class_name;
     this.x = 0;
     this.y = 0;
     this.speed = [0, 0];
@@ -7,10 +7,12 @@ function unit() {
     this.disabled = false;
     this.bounce = false;
     
-    this.init = function (dom) {
+    this.init = function (dom, list) {
+        // basic data
         this.dom = dom;
         this.width = dom.width();
         this.height = dom.height();
+        this.list = list;
     }
     
     this.step = function () {
@@ -36,20 +38,20 @@ function unit() {
             this.y = tmpY;
         }
         
-        // collusion check
     };
     
-    this.fire = function () {
-        var new_bullet = new bullet();
-        var new_id = objects.add(new_bullet);
-        game.append("<div id='bullet_" + new_id + "' class='bullet object'></div>");
-        objects.items[new_id].x = this.x + this.width / 2;
-        objects.items[new_id].y = this.y;
-        objects.items[new_id].init($("#bullet_" + new_id));
+    this.collusion_check = function (target) {
+        console.log("check");
+        var deltaX = target.x - this.x;
+        var deltaY = target.y - this.y;
+        if ( deltaX > - target.width && deltaX < this.width && deltaY > - target.height && deltaY < this.height ) {
+            return true;
+        } else {
+            return false;
+        }
     }
-    
     this.delete = function () {
         this.dom.remove();
-        objects.remove(this.index);
+        this.list.remove(this.index);
     };
 }

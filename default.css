@@ -24,6 +24,12 @@ body{
     height: 60px;
 }
 
+#game {
+    width: 400px;
+    height: 640px;
+    background: rgb(50, 50, 50);
+}
+
 #console{
     color: white;
 }

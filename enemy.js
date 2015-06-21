@@ -1,5 +1,5 @@
 function enemy () {
-    this.speed = [8, 5];
+    this.speed = [8, 3];
     this.bounce = true;
 }
 

@@ -1,4 +1,6 @@
-var objects = new objectList();
+var enemys = new objectList();
+var playerBullets = new objectList();
+var enemyBullets = new objectList();
 var keyMap = {87: false, 83: false, 65: false, 68:false, 74: false};
 // w - 87, s - 83, a - 65, d - 68
 // j - 74
@@ -8,7 +10,7 @@ var counter = 0;
 var player;
 var size = [400, 640];
 var game;
-var enemy_freq = 100;
+var enemy_freq = 200;
 
 $(document).ready(function () {
     $(window).keydown( function (e) {
@@ -24,7 +26,7 @@ $(document).ready(function () {
     // configure
     game = $("#game");
     player = new player();
-    player.init($("#player"));
+    player.init($("#player"), null);
     
     
     start_loop();
@@ -54,10 +56,20 @@ function step() {
     if (keyMap[74]) {
         player.fire();
     }
-    // move objects
-    for (var i in objects.items) {
-        objects.items[i].step();
+    // move enemys
+    for (var i in enemys.items) {
+        enemys.items[i].step();
+        /*
+        if(enemys.items[i].collusion_check(player)){
+            enemys.items[i].delete();
+        }
+        */
     }
+    // move bullets
+    for (var i in playerBullets.items) {
+        playerBullets.items[i].step();
+    }
+           
     // add enemy
     if (counter % enemy_freq == 0){
         add_enemy();
@@ -68,11 +80,11 @@ function step() {
 
 function add_enemy () {
     var new_enemy = new enemy();
-    var new_id = objects.add(new_enemy);
+    var new_id = enemys.add(new_enemy);
     game.append("<div id='enemy_" + new_id + "' class='enemy object'></div>");
     // random
-    objects.items[new_id].x = 100;
-    objects.items[new_id].y = 50;
-    objects.items[new_id].init($("#enemy_" + new_id));
+    enemys.items[new_id].x = 100;
+    enemys.items[new_id].y = 50;
+    enemys.items[new_id].init($("#enemy_" + new_id), enemys);
 }
     
