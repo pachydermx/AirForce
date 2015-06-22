@@ -3,7 +3,7 @@ function enemy () {
     this.bounce = true;
     this.point = 100;
     this.health = 5;
-    
+    // hit check when be hit by player's bullets
     this.hit_check = function () {
         var result = false;
         for (var i in playerBullets.items){
@@ -20,5 +20,5 @@ function enemy () {
         return result;
     }
 }
-
+// new a unit as the enemies' prototype
 enemy.prototype = new unit();
