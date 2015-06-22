@@ -40,23 +40,32 @@ function start_loop() {
 
 function step() {
     // move player
+    // direction -> (x, y)
     var direction = [0, 0]
+    // key "w" -> up 
     if (keyMap[87]) {
         direction[1] = -1;
     }
+    // key "s" -> down
     if (keyMap[83]) {
         direction[1] = 1;
     }
+    // key "a" -> left
     if (keyMap[65]) {
         direction[0] = -1;
     }
+    // key "d" -> right
     if (keyMap[68]) {
         direction[0] = 1;
     }
+    //player move
     player.move(direction[0], direction[1]);
+    
+    //key "j" -> fire
     if (keyMap[74]) {
         player.fire();
     }
+    
     // move enemys
     for (var i in enemys.items) {
         try {
@@ -85,7 +94,7 @@ function add_enemy () {
     var new_enemy = new enemy();
     var new_id = enemys.add(new_enemy);
     game.append("<div id='enemy_" + new_id + "' class='enemy object'></div>");
-    // random
+    // random(TODO)
     enemys.items[new_id].x = 100;
     enemys.items[new_id].y = 50;
     enemys.items[new_id].init($("#enemy_" + new_id), enemys);
