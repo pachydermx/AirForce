@@ -44,6 +44,6 @@ body{
     background: green;
 }
 
-.hit {
+.enemy.hit {
     background: rgb(150, 0, 0);
 }
