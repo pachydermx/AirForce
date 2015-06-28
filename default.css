@@ -44,6 +44,12 @@ body{
     background: green;
 }
 
+.supply {
+    width: 10px;
+    height: 10px;
+    background: yellow;
+}
+
 .enemy.hit {
     background: rgb(150, 0, 0);
 }

@@ -9,6 +9,8 @@ function player () {
     this.fireInterval = 5;
     this.fireCounter = 0;
     
+    this.level = 0;
+    
 }
 // new a unit as the player's prototype
 player.prototype = new unit();
@@ -17,10 +19,11 @@ player.prototype = new unit();
 player.prototype.move = function (rateX, rateY) {
     this.x += rateX * this.speed;
     this.y += rateY * this.speed;
-    this.apply();
+    this.applyChange();
 };
-//?(TODO)
-player.prototype.apply = function () {
+
+// apply change
+player.prototype.applyChange = function () {
     this.x = Math.max(this.x, 0);
     this.y = Math.max(this.y, 0);
     this.x = Math.min(this.x, size[0]);
@@ -44,12 +47,21 @@ player.prototype.fire = function () {
 }
 // hit check when be hit by enemies' bullets
 player.prototype.hit_check = function () {
+    // for enemy
     for (var i in enemys.items){
         if (this.collusion_check(enemys.items[i])){
             this.hit();
             enemys.items[i].delete();
             // display
             $("#health_bar").css("width", (this.health / this.maxHealth) * $("#health_display").width());
+        }
+    }
+    // for supply
+    for (var i in supplyItems.items){
+        if (this.collusion_check(supplyItems.items[i])){
+            this.level += 1;
+            $("#weapon_level_display").text(this.level);
+            supplyItems.items[i].delete();
         }
     }
 }

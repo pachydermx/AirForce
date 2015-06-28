@@ -40,7 +40,10 @@ unit.prototype.step = function () {
     // touch the end
     if (tmpY < -this.height || tmpY > size[1]) {
         if (this.auto_delete) {
-            this.delete();
+            this.delete(false);
+        }
+        if (this.bounce) {
+            this.speed[1] *= -1;
         }
     } else {
         this.dom.css("left", tmpX);
@@ -73,11 +76,11 @@ unit.prototype.hit = function () {
     this.hitTimer = 10;
     this.health--;
     if (this.health <= 0){
-        this.delete();
+        this.delete(true);
     }
 }
 // vanish function
-unit.prototype.delete = function () {
+unit.prototype.delete = function (hitToDie) {
     this.dom.remove();
     this.list.remove(this.index);
 };

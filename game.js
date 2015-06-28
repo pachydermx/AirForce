@@ -1,6 +1,7 @@
 var enemys = new objectList();
 var playerBullets = new objectList();
 var enemyBullets = new objectList();
+var supplyItems = new objectList();
 var keyMap = {87: false, 83: false, 65: false, 68:false, 74: false};
 // w - 87, s - 83, a - 65, d - 68
 // j - 74
@@ -78,6 +79,10 @@ function step() {
     // move bullets
     for (var i in playerBullets.items) {
         playerBullets.items[i].step();
+    }
+    // move supply
+    for (var i in supplyItems.items) {
+        supplyItems.items[i].step();
     }
     // check hit
     player.hit_check();
