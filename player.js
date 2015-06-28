@@ -8,8 +8,10 @@ function player () {
     // set fire state
     this.fireInterval = 5;
     this.fireCounter = 0;
+	this.fireColumns = 1;
     
     this.level = 0;
+	this.maxLevel = 5;
     
 }
 // new a unit as the player's prototype
@@ -34,17 +36,33 @@ player.prototype.applyChange = function () {
 // fire function
 player.prototype.fire = function () {
     if (this.fireCounter % this.fireInterval == 0){
-        var new_bullet = new bullet();
-        // add new bullet as Object
-        var new_id = playerBullets.add(new_bullet);
-        // add new bullet as DOM
-        game.append("<div id='bullet_" + new_id + "' class='bullet object'></div>");
-        playerBullets.items[new_id].x = this.x + this.width / 2;
-        playerBullets.items[new_id].y = this.y;
-        playerBullets.items[new_id].init($("#bullet_" + new_id), playerBullets);
+		var x;
+		switch (this.fireColumns){
+			case 1:
+				x = [this.x + this.width / 2];
+				break;
+			case 2:
+				x = [this.x + this.width / 2 - 15, this.x + this.width / 2 + 15];
+				break;
+			case 3:
+				x = [this.x + this.width / 2 - 30, this.x + this.width / 2, this.x + this.width /2 + 30];
+			default:
+				break;
+		}
+		for (var i in x) {
+			var new_bullet = new bullet();
+			// add new bullet as Object
+			var new_id = playerBullets.add(new_bullet);
+			// add new bullet as DOM
+			game.append("<div id='bullet_" + new_id + "' class='bullet object'></div>");
+			playerBullets.items[new_id].x = x[i];
+			playerBullets.items[new_id].y = this.y;
+			playerBullets.items[new_id].init($("#bullet_" + new_id), playerBullets);
+		}
     }
     this.fireCounter++;
 }
+
 // hit check when be hit by enemies' bullets
 player.prototype.hit_check = function () {
     // for enemy
@@ -59,12 +77,38 @@ player.prototype.hit_check = function () {
     // for supply
     for (var i in supplyItems.items){
         if (this.collusion_check(supplyItems.items[i])){
-            this.level += 1;
-            $("#weapon_level_display").text(this.level);
+			this.changeLevel(this.level + 1)
             supplyItems.items[i].delete();
         }
     }
 }
+
+player.prototype.changeLevel = function (newLevel) {
+	this.level = Math.min(newLevel, this.maxLevel);
+	$("#weapon_level_display").text(this.level);
+    switch (this.level){
+		case 0:
+			this.fireInterval = 5;
+			this.fireColumns = 1;
+		case 1:
+			this.fireInterval = 4;
+			this.fireColumns = 1;
+			break;
+		case 2:
+			this.fireInterval = 3;
+			this.fireColumns = 2;
+			break;
+		case 3:
+			this.fireInterval = 3;
+			this.fireColumns = 2;
+			break;
+		default:
+			this.fireInterval = 2;
+			this.fireColumns = 3;
+			break;
+	}
+};
+
 // vanish when HP = 0 or GameOver
 player.prototype.delete = function () {
     gameOver();
