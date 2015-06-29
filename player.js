@@ -1,6 +1,6 @@
 function player () {
     // init
-    this.speed = 15;
+    this.speed = 10;
     this.class_name = "player";
     // set HP
     this.maxHealth = 4;
