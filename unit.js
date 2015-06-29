@@ -34,7 +34,7 @@ unit.prototype.step = function () {
 
     // border check
     // touch left or right 
-    if (tmpX < -this.width || tmpX > size[0]) {
+    if (tmpX < 0 || tmpX + this.width > size[0]) {
         if (this.bounce) {
             this.speed[0] *= -1;
         } else {
@@ -42,7 +42,7 @@ unit.prototype.step = function () {
         }
     }
     // touch the end
-    if (tmpY < -this.height || tmpY > size[1]) {
+    if (tmpY < 0 || tmpY + this.height> size[1]) {
         if (this.auto_delete) {
             this.delete(false);
         }

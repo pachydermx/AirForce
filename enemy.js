@@ -31,7 +31,7 @@ enemy.prototype.fire = function () {
 			// add new bullet as DOM
 			game.append("<div id='ebullet_" + new_id + "' class='bullet object'></div>");
 			enemyBullets.items[new_id].x = x[i];
-			enemyBullets.items[new_id].y = this.y;
+			enemyBullets.items[new_id].y = this.y + this.height;
 			enemyBullets.items[new_id].init($("#ebullet_" + new_id), enemyBullets);
 		}
     }
