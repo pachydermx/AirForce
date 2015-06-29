@@ -14,6 +14,25 @@ var game;
 var enemy_freq = 200;
 var score = 0;
 
+var stage = new stage([
+	['enemyA', 5000, 'weapon', 25],
+	['enemyA', 6000, null, 50],
+	['enemyA', 7000, null, 75],
+	['enemyA', 10000, 'weapon', 75],
+	['enemyA', 10500, null, 50],
+	['enemyA', 11000, null, 25],
+	['enemyB', 15000, 'weapon', 50],
+	['enemyA', 15500, null, 75],
+	['enemyA', 16000, null, 25],
+	['enemyB', 20000, 'weapon', 50, 0],
+	['enemyB', 22000, 'weapon', 50, -5],
+	['enemyB', 26000, 'health', 50, 5],
+	['enemyA', 30000, 'weapon', 50],
+	['enemyA', 30500, null, 25],
+	['enemyA', 31000, null, 75],
+	['enemyC', 40000, 'health', 50]
+	]);
+
 $(document).ready(function () {
     $(window).keydown( function (e) {
         keyMap[e.keyCode] = true;
@@ -30,6 +49,7 @@ $(document).ready(function () {
     player = new player();
     player.init($("#player"), null);
     
+	stage.play();
     
     start_loop();
     
@@ -87,20 +107,42 @@ function step() {
     // check hit
     player.hit_check();
            
+	/*
     // add enemy
     if (counter % enemy_freq == 0){
         add_enemy();
     }
+	*/
     // counter
     counter++;
 }
 
-function add_enemy () {
-    var new_enemy = new enemy();
+function add_enemy (enemyType, x, bonus, speedX) {
+    var new_enemy;
+	switch (enemyType){
+		case "enemyA":
+			new_enemy = new enemyA();
+			break;
+		case "enemyB":
+			new_enemy = new enemyB();
+			break;
+		case "enemyC":
+			new_enemy = new enemyC();
+			break;
+		default:
+			console.log("unknown enemy " + enemyType);
+			break;
+	}
+	if (bonus != null){
+		new_enemy.bonus = bonus;
+	}
+	if (typeof speedX !== "undefined"){
+		new_enemy.speed[0] = speedX;
+	}
     var new_id = enemys.add(new_enemy);
-    game.append("<div id='enemy_" + new_id + "' class='enemy object'></div>");
+    game.append("<div id='enemy_" + new_id + "' class='" + enemyType + " enemy object'></div>");
     // random(TODO)
-    enemys.items[new_id].x = 100;
+    enemys.items[new_id].x = size[0] * x / 100;
     enemys.items[new_id].y = 50;
     enemys.items[new_id].init($("#enemy_" + new_id), enemys);
 }

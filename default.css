@@ -19,8 +19,20 @@ body{
     height: 20px;
 }
 
-.enemy {
+.enemyA {
     background: red;
+    width: 40px;
+    height: 60px;
+}
+
+.enemyB {
+    background: orange;
+    width: 40px;
+    height: 60px;
+}
+
+.enemyC {
+    background: pink;
     width: 40px;
     height: 60px;
 }
