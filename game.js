@@ -107,12 +107,6 @@ function step() {
     // check hit
     player.hit_check();
            
-	/*
-    // add enemy
-    if (counter % enemy_freq == 0){
-        add_enemy();
-    }
-	*/
     // counter
     counter++;
 }
@@ -133,7 +127,7 @@ function add_enemy (enemyType, x, bonus, speedX) {
 			console.log("unknown enemy " + enemyType);
 			break;
 	}
-	if (bonus != null){
+	if (bonus !== "null"){
 		new_enemy.bonus = bonus;
 	}
 	if (typeof speedX !== "undefined"){
