@@ -74,6 +74,15 @@ player.prototype.hit_check = function () {
             $("#health_bar").css("width", (this.health / this.maxHealth) * $("#health_display").width());
         }
     }
+	// for enemy's bullet
+	for (var i in enemyBullets.items){
+        if (this.collusion_check(enemyBullets.items[i])){
+            this.hit();
+            enemyBullets.items[i].delete();
+            // display
+            $("#health_bar").css("width", (this.health / this.maxHealth) * $("#health_display").width());
+        }
+    }
     // for supply
     for (var i in supplyItems.items){
         if (this.collusion_check(supplyItems.items[i])){

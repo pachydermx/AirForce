@@ -149,6 +149,7 @@ function step() {
         try {
             enemys.items[i].step();
             enemys.items[i].hit_check();
+            enemys.items[i].fire();
         } catch (error) {
             //console.log(error);
         }
@@ -156,6 +157,9 @@ function step() {
     // move bullets
     for (var i in playerBullets.items) {
         playerBullets.items[i].step();
+    }
+    for (var i in enemyBullets.items) {
+        enemyBullets.items[i].step();
     }
     // move supply
     for (var i in supplyItems.items) {
