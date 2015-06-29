@@ -23,6 +23,8 @@ unit.prototype.init = function (dom, list) {
     this.dom = dom;
     this.width = dom.width();
     this.height = dom.height();
+	this.dom.css("x", this.x);
+	this.dom.css("y", this.y);
     this.list = list;
 }
 // move function for bullets and enemies

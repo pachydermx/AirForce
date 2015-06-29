@@ -9,7 +9,7 @@ var frameTimer;
 var frameRate = 60;
 var counter = 0;
 var player;
-var size = [400, 640];
+var size = [640, 640];
 var game;
 var enemy_freq = 200;
 var score = 0;
@@ -47,6 +47,8 @@ $(document).ready(function () {
     // configure
     game = $("#game");
     player = new player();
+	player.x = size[0] / 2;
+	player.y = size[1] - 100;
     player.init($("#player"), null);
     
 	stage.play();
