@@ -28,8 +28,8 @@ player.prototype.move = function (rateX, rateY) {
 player.prototype.applyChange = function () {
     this.x = Math.max(this.x, 0);
     this.y = Math.max(this.y, 0);
-    this.x = Math.min(this.x, size[0]);
-    this.y = Math.min(this.y, size[1]);
+    this.x = Math.min(this.x, size[0] - this.width);
+    this.y = Math.min(this.y, size[1] - this.height);
     this.dom.css("left", this.x);
     this.dom.css("top", this.y);
 };
@@ -70,6 +70,15 @@ player.prototype.hit_check = function () {
         if (this.collusion_check(enemys.items[i])){
             this.hit();
             enemys.items[i].delete();
+            // display
+            $("#health_bar").css("width", (this.health / this.maxHealth) * $("#health_display").width());
+        }
+    }
+	// for enemy's bullet
+	for (var i in enemyBullets.items){
+        if (this.collusion_check(enemyBullets.items[i])){
+            this.hit();
+            enemyBullets.items[i].delete();
             // display
             $("#health_bar").css("width", (this.health / this.maxHealth) * $("#health_display").width());
         }

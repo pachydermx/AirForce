@@ -48,44 +48,44 @@ var stage = new stage([
     ['enemyA', sTime[2] + 4800, null, 50, 1],
     ['enemyB', sTime[2] + 5200, 'weapon', 50, 1],
     // step 3
-    ['enemyA', sTime[3] + 2000, null, 100, -4],
-    ['enemyA', sTime[3] + 2400, null, 100, -4],
-    ['enemyA', sTime[3] + 2800, null, 100, -4],
-    ['enemyA', sTime[3] + 3200, null, 100, -3],
-    ['enemyA', sTime[3] + 3600, null, 100, -3],
-    ['enemyA', sTime[3] + 4000, null, 100, -3],
-    ['enemyA', sTime[3] + 4400, null, 100, -2],
-    ['enemyA', sTime[3] + 4800, null, 100, -2],
+    ['enemyA', sTime[3] + 2000, null, 90, -4],
+    ['enemyA', sTime[3] + 2400, null, 90, -4],
+    ['enemyA', sTime[3] + 2800, null, 90, -4],
+    ['enemyA', sTime[3] + 3200, null, 90, -3],
+    ['enemyA', sTime[3] + 3600, null, 90, -3],
+    ['enemyA', sTime[3] + 4000, null, 90, -3],
+    ['enemyA', sTime[3] + 4400, null, 90, -2],
+    ['enemyA', sTime[3] + 4800, null, 90, -2],
     ['enemyB', sTime[3] + 5200, 'weapon', 100, -2],
-    ['enemyA', sTime[3] + 2000, null, 0, 4],
-    ['enemyA', sTime[3] + 2400, null, 0, 4],
-    ['enemyA', sTime[3] + 2800, null, 0, 4],
-    ['enemyA', sTime[3] + 3200, null, 0, 3],
-    ['enemyA', sTime[3] + 3600, null, 0, 3],
-    ['enemyA', sTime[3] + 4000, 'health', 0, 3],
-    ['enemyA', sTime[3] + 4400, null, 0, 2],
-    ['enemyA', sTime[3] + 4800, null, 0, 2],
-    ['enemyB', sTime[3] + 5200, 'weapon', 0, 2],
+    ['enemyA', sTime[3] + 2000, null, 10, 4],
+    ['enemyA', sTime[3] + 2400, null, 10, 4],
+    ['enemyA', sTime[3] + 2800, null, 10, 4],
+    ['enemyA', sTime[3] + 3200, null, 10, 3],
+    ['enemyA', sTime[3] + 3600, null, 10, 3],
+    ['enemyA', sTime[3] + 4000, 'health', 10, 3],
+    ['enemyA', sTime[3] + 4400, null, 10, 2],
+    ['enemyA', sTime[3] + 4800, null, 10, 2],
+    ['enemyB', sTime[3] + 5200, 'weapon', 10, 2],
     // step 4 
     ['enemyC', sTime[4] + 2200, 'weapon', 50, 0],
-    ['enemyA', sTime[4] + 1000, null, 100, -2],
-    ['enemyA', sTime[4] + 1400, null, 100, -2],
-    ['enemyA', sTime[4] + 1800, null, 100, -2],
-    ['enemyA', sTime[4] + 2200, null, 100, -2],
-    ['enemyA', sTime[4] + 2600, null, 100, -2],
-    ['enemyA', sTime[4] + 3000, null, 100, -2],
-    ['enemyA', sTime[4] + 3400, null, 100, -1],
-    ['enemyA', sTime[4] + 3800, null, 100, -1],
-    ['enemyB', sTime[4] + 4200, 'weapon', 100, -1],
-    ['enemyA', sTime[4] + 1000, null, 0, 2],
-    ['enemyA', sTime[4] + 1400, null, 0, 2],
-    ['enemyA', sTime[4] + 1800, null, 0, 2],
-    ['enemyA', sTime[4] + 2200, null, 0, 2],
-    ['enemyA', sTime[4] + 2600, null, 0, 2],
-    ['enemyA', sTime[4] + 3000, 'health', 0, 2],
-    ['enemyA', sTime[4] + 3400, null, 0, 1],
-    ['enemyA', sTime[4] + 3800, null, 0, 1],
-    ['enemyB', sTime[4] + 4200, 'weapon', 0, 1],
+    ['enemyA', sTime[4] + 1000, null, 90, -2],
+    ['enemyA', sTime[4] + 1400, null, 90, -2],
+    ['enemyA', sTime[4] + 1800, null, 90, -2],
+    ['enemyA', sTime[4] + 2200, null, 90, -2],
+    ['enemyA', sTime[4] + 2600, null, 90, -2],
+    ['enemyA', sTime[4] + 3000, null, 90, -2],
+    ['enemyA', sTime[4] + 3400, null, 90, -1],
+    ['enemyA', sTime[4] + 3800, null, 90, -1],
+    ['enemyB', sTime[4] + 4200, 'weapon', 90, -1],
+    ['enemyA', sTime[4] + 1000, null, 10, 2],
+    ['enemyA', sTime[4] + 1400, null, 10, 2],
+    ['enemyA', sTime[4] + 1800, null, 10, 2],
+    ['enemyA', sTime[4] + 2200, null, 10, 2],
+    ['enemyA', sTime[4] + 2600, null, 10, 2],
+    ['enemyA', sTime[4] + 3000, 'health', 10, 2],
+    ['enemyA', sTime[4] + 3400, null, 10, 1],
+    ['enemyA', sTime[4] + 3800, null, 10, 1],
+    ['enemyB', sTime[4] + 4200, 'weapon', 10, 1],
 	]);
 
 $(document).ready(function () {
@@ -149,6 +149,7 @@ function step() {
         try {
             enemys.items[i].step();
             enemys.items[i].hit_check();
+            enemys.items[i].fire();
         } catch (error) {
             //console.log(error);
         }
@@ -156,6 +157,9 @@ function step() {
     // move bullets
     for (var i in playerBullets.items) {
         playerBullets.items[i].step();
+    }
+    for (var i in enemyBullets.items) {
+        enemyBullets.items[i].step();
     }
     // move supply
     for (var i in supplyItems.items) {
@@ -207,6 +211,12 @@ function gameOver (win) {
 	if (win){
 		$("#state_display").text("Mission Accomplished");
 	} else {
+        player = null;
 		$("#state_display").text("Game Over");
 	}
+    //clear stage
+    for (var i=0; i<stage.timers.length; i++) {
+        clearTimeout(stage.timers[i]);
+    }
+    stage = null;
 }

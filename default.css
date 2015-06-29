@@ -1,6 +1,7 @@
 body{
     background: rgb(30, 30, 30);
     color: white;
+    margin: 0px;
 }
 
 .object {
@@ -16,7 +17,7 @@ body{
 .bullet {
     background: yellow;
     width: 5px;
-    height: 20px;
+    height: 10px;
 }
 
 .enemyA {
@@ -59,7 +60,7 @@ body{
 .supply {
     width: 10px;
     height: 10px;
-    background: yellow;
+    background: lightgreen;
 }
 
 .enemy.hit {

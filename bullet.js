@@ -1,5 +1,4 @@
-//(TODO)
-//distingush enemies' and player's
+//player's bullet
 function bullet () {
     this.speed = [0, -16];
 }
