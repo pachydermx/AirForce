@@ -13,6 +13,7 @@ function enemyB(){
 enemyB.prototype = new enemy();
 
 function enemyC(){
+	this.isBoss = true;
 	this.speed = [4, 1];
 	this.health = 30;
 }

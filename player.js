@@ -94,7 +94,7 @@ player.prototype.hit_check = function () {
 
 player.prototype.changeHealth = function (newHealth) {
 	this.health = Math.min(newHealth, this.maxHealth);
-	this.health = Math.max(newHealth, 0);
+	this.health = Math.max(this.health, 0);
     $("#health_bar").css("width", (this.health / this.maxHealth) * $("#health_display").width());
 }
 
@@ -126,7 +126,7 @@ player.prototype.changeLevel = function (newLevel) {
 
 // vanish when HP = 0 or GameOver
 player.prototype.delete = function () {
-    gameOver();
+    gameOver(false);
     this.dom.remove();
     this.x = 0;
     this.y = 0;

@@ -146,6 +146,10 @@ function setScore (new_score) {
     $("#score_display").text(score);
 }
     
-function gameOver () {
-    alert("Game Over");
+function gameOver (win) {
+	if (win){
+		$("#state_display").text("Mission Accomplished");
+	} else {
+		$("#state_display").text("Game Over");
+	}
 }

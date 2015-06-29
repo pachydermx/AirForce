@@ -13,6 +13,8 @@ function unit() {
     this.bounce = false;
     // flag : timer for duration of hit state
     this.hitTimer = -1;
+	
+	this.isBoss = false;
 }
 
 // cosntruction

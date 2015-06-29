@@ -34,5 +34,10 @@ enemy.prototype.delete = function(hitToDie) {
         supplyItems.items[new_id].y = this.y;
         supplyItems.items[new_id].init($("#supply_" + new_id), supplyItems);
     }
+	
+	if (this.isBoss){
+		gameOver(true);
+	}
+	
     unit.prototype.delete.apply(this, []);
 }
