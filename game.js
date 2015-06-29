@@ -9,28 +9,83 @@ var frameTimer;
 var frameRate = 60;
 var counter = 0;
 var player;
-var size = [640, 640];
+// size = [width, height]
+var size = [320, 640];
 var game;
-var enemy_freq = 200;
+var enemy_freq = 200; 
 var score = 0;
+// [enemyType, appearTime, bonus, x, speedX]
+// x in [0, 100]
 
+//step begin time
+sTime = [0, 5000, 10000, 15000, 20000];
 var stage = new stage([
-	['enemyA', 5000, 'weapon', 25],
-	['enemyA', 6000, null, 50],
-	['enemyA', 7000, null, 75],
-	['enemyA', 10000, 'weapon', 75],
-	['enemyA', 10500, null, 50],
-	['enemyA', 11000, null, 25],
-	['enemyB', 15000, 'weapon', 50],
-	['enemyA', 15500, null, 75],
-	['enemyA', 16000, null, 25],
-	['enemyB', 20000, 'weapon', 50, 0],
-	['enemyB', 22000, 'weapon', 50, -5],
-	['enemyB', 26000, 'health', 50, 5],
-	['enemyA', 30000, 'weapon', 50],
-	['enemyA', 30500, null, 25],
-	['enemyA', 31000, null, 75],
-	['enemyC', 40000, 'health', 50]
+    // step 0
+    ['enemyA', 1000, 'weapon', 25],
+	['enemyA', 1500, null, 50],
+	['enemyA', 2000, null, 75, 4],
+	['enemyA', 2500, null, 50],
+	['enemyA', 3000, null, 25],
+	['enemyB', 4000, 'weapon', 50],
+    // step 1
+    ['enemyA', sTime[1] + 2000, null, 50, -3],
+    ['enemyA', sTime[1] + 2400, null, 50, -3],
+    ['enemyA', sTime[1] + 2800, null, 50, -3],
+    ['enemyA', sTime[1] + 3200, null, 50, -2],
+    ['enemyA', sTime[1] + 3600, null, 50, -2],
+    ['enemyA', sTime[1] + 4000, null, 50, -2],
+    ['enemyA', sTime[1] + 4400, null, 50, -1],
+    ['enemyA', sTime[1] + 4800, null, 50, -1],
+    ['enemyB', sTime[1] + 5200, 'weapon', 50, -1],
+    // step 2
+    ['enemyA', sTime[2] + 2000, null, 50, 3],
+    ['enemyA', sTime[2] + 2400, null, 50, 3],
+    ['enemyA', sTime[2] + 2800, null, 50, 3],
+    ['enemyA', sTime[2] + 3200, null, 50, 2],
+    ['enemyA', sTime[2] + 3600, null, 50, 2],
+    ['enemyA', sTime[2] + 4000, 'health', 50, 2],
+    ['enemyA', sTime[2] + 4400, null, 50, 1],
+    ['enemyA', sTime[2] + 4800, null, 50, 1],
+    ['enemyB', sTime[2] + 5200, 'weapon', 50, 1],
+    // step 3
+    ['enemyA', sTime[3] + 2000, null, 100, -4],
+    ['enemyA', sTime[3] + 2400, null, 100, -4],
+    ['enemyA', sTime[3] + 2800, null, 100, -4],
+    ['enemyA', sTime[3] + 3200, null, 100, -3],
+    ['enemyA', sTime[3] + 3600, null, 100, -3],
+    ['enemyA', sTime[3] + 4000, null, 100, -3],
+    ['enemyA', sTime[3] + 4400, null, 100, -2],
+    ['enemyA', sTime[3] + 4800, null, 100, -2],
+    ['enemyB', sTime[3] + 5200, 'weapon', 100, -2],
+    ['enemyA', sTime[3] + 2000, null, 0, 4],
+    ['enemyA', sTime[3] + 2400, null, 0, 4],
+    ['enemyA', sTime[3] + 2800, null, 0, 4],
+    ['enemyA', sTime[3] + 3200, null, 0, 3],
+    ['enemyA', sTime[3] + 3600, null, 0, 3],
+    ['enemyA', sTime[3] + 4000, 'health', 0, 3],
+    ['enemyA', sTime[3] + 4400, null, 0, 2],
+    ['enemyA', sTime[3] + 4800, null, 0, 2],
+    ['enemyB', sTime[3] + 5200, 'weapon', 0, 2],
+    // step 4 
+    ['enemyC', sTime[4] + 2200, 'weapon', 50, 0],
+    ['enemyA', sTime[4] + 1000, null, 100, -2],
+    ['enemyA', sTime[4] + 1400, null, 100, -2],
+    ['enemyA', sTime[4] + 1800, null, 100, -2],
+    ['enemyA', sTime[4] + 2200, null, 100, -2],
+    ['enemyA', sTime[4] + 2600, null, 100, -2],
+    ['enemyA', sTime[4] + 3000, null, 100, -2],
+    ['enemyA', sTime[4] + 3400, null, 100, -1],
+    ['enemyA', sTime[4] + 3800, null, 100, -1],
+    ['enemyB', sTime[4] + 4200, 'weapon', 100, -1],
+    ['enemyA', sTime[4] + 1000, null, 0, 2],
+    ['enemyA', sTime[4] + 1400, null, 0, 2],
+    ['enemyA', sTime[4] + 1800, null, 0, 2],
+    ['enemyA', sTime[4] + 2200, null, 0, 2],
+    ['enemyA', sTime[4] + 2600, null, 0, 2],
+    ['enemyA', sTime[4] + 3000, 'health', 0, 2],
+    ['enemyA', sTime[4] + 3400, null, 0, 1],
+    ['enemyA', sTime[4] + 3800, null, 0, 1],
+    ['enemyB', sTime[4] + 4200, 'weapon', 0, 1],
 	]);
 
 $(document).ready(function () {

@@ -8,8 +8,8 @@ body{
 }
 
 .self {
-    width: 60px;
-    height: 80px;
+    width: 30px;
+    height: 40px;
     background: white;
 }
 
@@ -21,14 +21,14 @@ body{
 
 .enemyA {
     background: red;
-    width: 40px;
-    height: 60px;
+    width: 20px;
+    height: 30px;
 }
 
 .enemyB {
     background: orange;
-    width: 40px;
-    height: 60px;
+    width: 20px;
+    height: 30px;
 }
 
 .enemyC {
@@ -38,7 +38,7 @@ body{
 }
 
 #game {
-    width: 640px;
+    width: 320px;
     height: 640px;
     background: rgb(50, 50, 50);
 }
