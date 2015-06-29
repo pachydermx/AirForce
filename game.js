@@ -66,6 +66,26 @@ var stage = new stage([
     ['enemyA', sTime[3] + 4400, null, 0, 2],
     ['enemyA', sTime[3] + 4800, null, 0, 2],
     ['enemyB', sTime[3] + 5200, 'weapon', 0, 2],
+    // step 4 
+    ['enemyC', sTime[4] + 2200, 'weapon', 50, 0],
+    ['enemyA', sTime[4] + 1000, null, 100, -2],
+    ['enemyA', sTime[4] + 1400, null, 100, -2],
+    ['enemyA', sTime[4] + 1800, null, 100, -2],
+    ['enemyA', sTime[4] + 2200, null, 100, -2],
+    ['enemyA', sTime[4] + 2600, null, 100, -2],
+    ['enemyA', sTime[4] + 3000, null, 100, -2],
+    ['enemyA', sTime[4] + 3400, null, 100, -1],
+    ['enemyA', sTime[4] + 3800, null, 100, -1],
+    ['enemyB', sTime[4] + 4200, 'weapon', 100, -1],
+    ['enemyA', sTime[4] + 1000, null, 0, 2],
+    ['enemyA', sTime[4] + 1400, null, 0, 2],
+    ['enemyA', sTime[4] + 1800, null, 0, 2],
+    ['enemyA', sTime[4] + 2200, null, 0, 2],
+    ['enemyA', sTime[4] + 2600, null, 0, 2],
+    ['enemyA', sTime[4] + 3000, 'health', 0, 2],
+    ['enemyA', sTime[4] + 3400, null, 0, 1],
+    ['enemyA', sTime[4] + 3800, null, 0, 1],
+    ['enemyB', sTime[4] + 4200, 'weapon', 0, 1],
 	]);
 
 $(document).ready(function () {
