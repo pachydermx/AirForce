@@ -3,7 +3,7 @@ function enemy () {
     this.bounce = true;
     this.point = 100;
     this.health = 5;
-    this.bonus = true;
+    this.bonus = 'health';
     // hit check when be hit by player's bullets
 }
 // new a unit as the enemies' prototype
@@ -26,8 +26,8 @@ enemy.prototype.hit_check = function () {
 }
 
 enemy.prototype.delete = function(hitToDie) {
-    if (this.bonus && hitToDie){
-        var new_supply = new supply();
+    if (this.bonus.length > 0 && hitToDie){
+        var new_supply = new supply(this.bonus);
         // add new supply as Object
         var new_id = supplyItems.add(new_supply);
         // add new bullet as DOM

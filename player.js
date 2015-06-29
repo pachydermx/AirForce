@@ -77,10 +77,25 @@ player.prototype.hit_check = function () {
     // for supply
     for (var i in supplyItems.items){
         if (this.collusion_check(supplyItems.items[i])){
-			this.changeLevel(this.level + 1)
-            supplyItems.items[i].delete();
+			switch (supplyItems.items[i].type){
+				case 'weapon':
+					this.changeLevel(this.level + 1);
+					break;
+				case 'health':
+					this.changeHealth(this.health + 1);
+					break;
+				default:
+					break;
+			}
+			supplyItems.items[i].delete();
         }
     }
+}
+
+player.prototype.changeHealth = function (newHealth) {
+	this.health = Math.min(newHealth, this.maxHealth);
+	this.health = Math.max(newHealth, 0);
+    $("#health_bar").css("width", (this.health / this.maxHealth) * $("#health_display").width());
 }
 
 player.prototype.changeLevel = function (newLevel) {
