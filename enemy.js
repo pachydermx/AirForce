@@ -5,6 +5,7 @@ function enemy () {
     // hit check when be hit by player's bullets
     this.fireCounter = 0;
     this.fireInterval = 100;
+	this.isBoss = false;
 }
 // new a unit as the enemies' prototype
 enemy.prototype = new unit();
