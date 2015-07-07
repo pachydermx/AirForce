@@ -1,7 +1,7 @@
 function unit() {
     // dom : DOM of unit
     // class_name : class symbol of new unit instant
-    var dom, width, height, health, list, class_name, point;
+    var dom, width, height, health, list,  point;
     this.x = 0;
     this.y = 0;
     //speed vector -> (x, y)
@@ -13,8 +13,6 @@ function unit() {
     this.bounce = false;
     // flag : timer for duration of hit state
     this.hitTimer = -1;
-	
-	this.isBoss = false;
 }
 
 // cosntruction
