@@ -1,0 +1,39 @@
+\documentclass{jarticle}
+\usepackage{listings, jlisting}
+\usepackage{graphicx}
+\usepackage{color}
+\lstset{tabsize=2}
+
+\definecolor{sourcebackground}{rgb}{0.831, 0.831, 0.831}
+
+\newcommand{\insertcode}[1]{
+    \lstinputlisting[breaklines=true,language=HTML,numbers=left, backgroundcolor=\color{sourcebackground}]{#1}
+}
+
+\newcommand{\insertfigure}[2]{
+    \includegraphics[width=#1cm]{#2}
+}
+
+
+\title{情報コミュニケーション創成\\レポート}
+\author{クラスB4\\REN JIMIN - 2600130451-7\\ZHENG Yuhui - }
+\date{提出日:2015年7月20日}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\clearpage
+
+\section{目的}
+	\input{intro.tex}
+\section{プログラムの機能}
+	\input{function.tex}
+\section{外部仕様}
+	\input{external.tex}
+\section{内部仕様}
+	\input{internal.tex}
+\section{実行例}
+	\input{sample.tex}
+\section{工夫した点と考察}
+	\input{study.tex}	
+\end{document}
