@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.6.10)  8 JUL 2015 15:53
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.6.10)  8 JUL 2015 15:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -132,16 +132,28 @@ LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 1.
-) (./internal.tex) (./sample.tex) (./study.tex) [2
+) (./internal.tex
+File: diagram.eps Graphic file (type eps)
+ <diagram.eps>
+Overfull \hbox (24.05522pt too wide) in paragraph at lines 2--3
+[][]
+ []
 
-] (/Users/pachydermx/Git/AirForce/report/.texpadtmp/report.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--3
+
+ []
+
+) (./sample.tex) (./study.tex) [2
+
+] [3] (/Users/pachydermx/Git/AirForce/report/.texpadtmp/report.aux) ) 
 Here is how much of TeX's memory you used:
- 2016 strings out of 494008
- 28861 string characters out of 6154472
+ 2019 strings out of 494008
+ 28887 string characters out of 6154472
  86506 words of memory out of 5000000
- 5480 multiletter control sequences out of 15000+600000
+ 5481 multiletter control sequences out of 15000+600000
  13716 words of font info for 53 fonts, out of 8000000 for 9000
  745 hyphenation exceptions out of 8191
  26i,6n,32p,201b,233s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /Users/pachydermx/Git/AirForce/report/.texpadtmp/report.dvi (2 pages, 6628 bytes).
+Output written on /Users/pachydermx/Git/AirForce/report/.texpadtmp/report.dvi (3 pages, 6880 bytes).
