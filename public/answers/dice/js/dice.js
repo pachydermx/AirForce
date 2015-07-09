@@ -1,0 +1,1 @@
+$(document).ready(function(){function t(){return Math.floor(6*Math.random()+1)}function o(){function o(){$("#dice").text(t()),i=setTimeout(o,c)}void 0===i&&o(),$("#dice_button").text("ストップ")}function n(){void 0!=i&&(clearTimeout(i),i=void 0),$("#dice_button").text("スタート")}var i=void 0,c=100;$("#dice_button").on("click",function(){void 0!=i?n():o()}),o(),n()});

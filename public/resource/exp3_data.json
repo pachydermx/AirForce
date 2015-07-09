@@ -1,0 +1,165 @@
+{
+  "title": "情報コミュニケーション学実験III",
+  "subtitle": "Webアプリ(Ajax)の実験",
+  "year" : "2015年度",
+  "labels" : {
+    "userId" : "ユーザID",
+    "linkToAnswer" : "解答へのリンク(新しいタブに表示)",
+    "linkToExample" : "解答例の表示",
+    "linkToTemplate" : "テンプレートの表示",
+    "exampleTemplate" : "テンプレート例",
+    "exampleAnswer" : "解答例"
+  },
+  "cssLabels" : {
+    "assignment" : "【提出課題】",
+    "advanced" : "【オプション】"
+  },
+  "topics" : [ 
+              {
+                "label": "表紙",
+                "subtopics" : 
+                  [
+                   {
+                     "label": "概要",
+                     "text": "abstract.md"
+                   },
+                   {
+                     "label": "目次",
+                     "text" : "toc.md"
+                   }
+                  ]
+              },
+              {
+                "label": "第１週",
+                "prefix": "/week01",
+                "subtopics": [
+                               {
+                                 "label": "概要",
+                                 "text": "week01.md"
+                               },
+                               {
+                                 "label": "Hello, World!",
+                                 "name": "helloworld"
+                               },
+                               {
+                                 "label": "挨拶(文字列の連結)",
+                                 "name": "greeting"
+                               },
+                               {
+                                 "label": "乱数",
+                                 "name": "random"
+                               },
+                               {
+                                 "label": "さいころ(タイマーの活用)",
+                                 "name": "dice"
+                               },
+                               {
+                                 "label": "さいころ(画像付)",
+                                 "name": "dice_images",
+                                 "type": "advanced"
+                               },
+                               {
+                                 "label": "タイマーの活用",
+                                 "name": "timer_app",
+                                 "type": "assignment"
+                               }
+                              ]
+              },
+              {
+                "label": "第２週",
+                "prefix": "/week02",
+                "subtopics": [
+                              {
+                                "label": "概要",
+                                "text": "week02.md"
+                              },
+                              {
+                                "label": "ランダムに図形描画",
+                                "name": "random_draw"
+                              },
+                              {
+                                "label": "マウスで円を描く",
+                                "name": "draw_circle"
+                              },
+                              {
+                                "label": "お絵かきプログラム（ブラシ）",
+                                "name": "draw_brush"
+                              },
+                              {
+                                "label": "お絵かきプログラム（ペン）",
+                                "name": "draw_pen",
+                                "type": "advanced"
+                                
+                              },
+                              {
+                                "label": "お絵かきプログラム（四角形）",
+                                "name" : "draw_rect",
+                                "type" : "advanced" 
+                              },
+                              {
+                                "label": "お絵かきプログラム",
+                                "name": "simple_draw",
+                                "type": "assignment"
+                              }
+                              ]
+              },
+              {
+                "label": "第３週",
+                "prefix": "/week03",
+                "subtopics": [
+                              {
+                                "label": "概要",
+                                "text": "week03.md"
+                              },
+                              {
+                                "label": "Ajax (GET)",
+                                "name": "ajax_get"
+                              },
+                              { 
+                                "label": "一行掲示板",
+                                "name": "oneline_bbs"
+                              },
+                              {
+                                "label": "掲示板",
+                                "name": "sample_bbs",
+                                "type": "assignment"
+                              }
+                              ]
+              },
+              {
+                "label": "第４週",
+                "prefix": "/week04",
+                "subtopics": [
+                              {
+                                "label": "概要",
+                                "text": "week04.md"
+                              },
+                              {
+                                "label": "テキストチャット",
+                                "name": "text_chat"
+                              },
+                              {
+                                "label": "お絵かきチャット",
+                                "name": "drawing_chat"
+                              },
+                              {
+                                "label": "チャットアプリケーション",
+                                "name": "chat_app",
+                                "type": "assignment"
+                              }
+                              ]
+              },
+              {
+                "label": "第５週",
+                "prefix": "/week05",
+                "subtopics": [
+                              {
+                                "label": "最終自由課題",
+                                "name": "final",
+                                "type": "assignment"
+                              }
+                              ]
+              }
+              ],
+  "comment" : ""
+}

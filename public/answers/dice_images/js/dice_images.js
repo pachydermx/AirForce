@@ -1,0 +1,1 @@
+$(document).ready(function(){function i(){return Math.floor(6*Math.random()+1)}function o(){function o(){$("#dice").attr("src","/img/dice"+i()+".png"),t=setTimeout(o,c)}void 0===t&&o()}function n(){void 0!=t&&(clearTimeout(t),t=void 0)}var t=void 0,c=100;$("#dice").on("click",function(){void 0!=t?n():o()}),o(),n()});

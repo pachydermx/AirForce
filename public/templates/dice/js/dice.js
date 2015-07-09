@@ -1,0 +1,8 @@
+/**
+ * dice
+ */
+$(document).ready(function() {
+
+
+
+});

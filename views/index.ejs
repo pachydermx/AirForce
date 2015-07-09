@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title
+ data-bind="text: title + ' (' + currentTopic().label + ': ' + currentSubtopic().label + ')'"></title>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<style>
+html {
+ position: relative;
+ min-height: 100%;
+}
+
+body {
+ /* Margin bottom by footer height */
+ margin-bottom: 30px;
+}
+
+.footer {
+ position: absolute;
+ bottom: 0;
+ width: 100%;
+ /* Set the fixed height of the footer here */
+ height: 30px;
+ background-color: #f5f5f5;
+}
+
+.footer .userid {
+ float: left;
+ margin: 6px 0px 0px 0px;
+}
+
+.footer .year {
+ float: right;
+ margin: 6px 0px 0px 0px;
+}
+
+.navbar {
+ min-height: 40px;
+}
+
+.navbar-brand,.navbar-nav li a {
+ padding-top: 10px;
+ padding-bottom: 10px;
+ height: 40px;
+}
+
+.navbar-text {
+ margin-top: 10px;
+ margin-bottom: 10px;
+}
+
+#subtopic-text div {
+ padding: 20px 20px 14px 20px;
+}
+
+#subtopic-text {
+ margin: 4px 0px 4px 0px;
+ border: 1px solid #cccccc;
+}
+
+.nav-pills a {
+ margin: 1px;
+ border: 1px solid #eeeeee;
+}
+
+.nav-pills>li>a {
+ padding: 5px 15px;
+}
+
+.nav-pills li.active a.assignment {
+ color: #ffffff;
+ background-color: #d24f70;
+}
+
+.nav a.assignment {
+ color: #c7254e;
+ border: 1px solid #f9f2f4;
+}
+
+.nav a.assignment:hover,.nav a.assignment:focus {
+ color: #9f1e3e;
+ background-color: #f9f2f4;
+}
+
+.nav-pills li.active a.advanced {
+ color: #ffffff;
+ background-color: #eea236;
+}
+
+.nav a.advanced {
+ color: #ec971f;
+ border: 1px solid #fae4c5;
+}
+
+.nav a.advanced:hover,.nav a.adavanced:focus {
+ color: #ec971f;
+ background-color: #fcefdc;
+}
+
+#subtopic-text a:hover {
+ cursor: pointer;
+}
+
+.modal {
+ /* overflow-y: hidden;*/
+ 
+}
+
+.modal-dialog {
+ width: 90%;
+}
+
+.modal-header {
+ padding: 4px 8px;
+}
+
+#sample-code {
+ padding-top: 4px;
+ border-left: 1px solid #cccccc;
+ border-right: 1px solid #cccccc;
+ border-bottom: 1px solid #cccccc;
+}
+
+#playground iframe {
+ /* height: 80%; */
+ border: 0px;
+}
+
+#playground .modal-body {
+ padding: 0px;
+}
+
+.subtopic-btn-list>* {
+ margin: 2px 4px 4px 0px;
+}
+</style>
+<!-- syntaxhighlighter -->
+<link href="/syntaxhighlighter_3.0.83/styles/shCore.css" rel="stylesheet">
+<link href="/syntaxhighlighter_3.0.83/styles/shThemeDefault.css"
+ rel="stylesheet">
+<link href="/highlight/styles/default.css" rel="stylesheet">
+<style>
+/* syntax hilighter patch */
+/* https://github.com/alexgorbatchev/SyntaxHighlighter/issues/167 */
+div.syntaxhighlighter .container:before,div.syntaxhighlighter .container:after
+ {
+ content: none;
+}
+</style>
+</head>
+<body>
+ <!-- navbar -->
+ <nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+   <div class="navbar-header">
+    <a class="navbar-brand" href="#"
+     data-bind="text: subtitle, click: $root.selectTopic.bind($root, 0, 0)"></a>
+   </div>
+   <ul class="nav navbar-nav" data-bind="foreach: topics">
+    <li data-bind="css: {active: $root.currentTopic() == $data}"><a
+     href="#"
+     data-bind="text: label, click: $root.selectTopic.bind($root, $index(), 0)"></a>
+    </li>
+   </ul>
+  </div>
+ </nav>
+ <div class="container-fluid">
+  <div class="row">
+   <div class="col-md-3">
+    <!-- tab -->
+    <ul class="nav nav-pills nav-stacked" data-bind="foreach: subtopics">
+     <li data-bind="css: {active: $root.currentSubtopic() == $data}"><a
+      href="#"
+      data-bind="text: ($data.type == undefined) ? label : $root.cssLabels[$data.type] + ' ' + label,
+    click: $root.selectSubtopic.bind($root, $index()), 
+    css: {assignment: $data.type == 'assignment', advanced: $data.type == 'advanced'}"></a></li>
+    </ul>
+   </div>
+   <div class="col-md-9">
+    <div id="subtopic-text" data-bind="visible: $root.currentSubtopic()"
+     style="border: 1px solid #dddddd">
+     <!-- place holder -->
+     <div></div>
+    </div>
+    <div data-bind="visible: $root.currentSubtopic().name"
+     class="subtopic-btn-list">
+     <a class="btn btn-mini btn-primary" target="_blank"
+      data-bind="attr: {href: '/' + userid + $root.currentTopic().prefix + '/' + $root.currentSubtopic().name + '.html'},
+    text: $root.labels.linkToAnswer"></a>
+     <button class="btn btn-info btn-mini" id="playground-btn"
+      data-bind="text: $root.labels.linkToExample"></button>
+     <button class="btn btn-info btn-mini" id="code-template-btn"
+      data-bind="text: $root.labels.linkToTemplate"></button>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="modal" id="code-template">
+  <div class="modal-dialog">
+   <div class="modal-content">
+    <div class="modal-header">
+     <button type="button" class="close" data-dismiss="modal">&times;</button>
+     <h4 class="modal-title"
+      data-bind="text: $root.currentSubtopic().label + ' ' + $root.labels.exampleTemplate"></h4>
+    </div>
+    <div class="modal-body">
+     <ul class="nav nav-tabs" data-bind="foreach: codeTemplates">
+      <li
+       data-bind="css: {active: $root.currentCodeTemplateIndex() == $index()}, 
+        click: $root.selectCodeTemplate.bind($root, $index())">
+       <a href="#" data-bind="text: $data"></a>
+      </li>
+     </ul>
+     <div id="sample-code"></div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="modal" id="playground">
+  <div class="modal-dialog">
+   <div class="modal-content">
+    <div class="modal-header">
+     <button type="button" class="close" data-dismiss="modal">&times;</button>
+     <h4 class="modal-title"
+      data-bind="text: $root.currentSubtopic().label + ' ' + $root.labels.exampleAnswer"></h4>
+    </div>
+    <div class="modal-body">
+     <iframe id="playground-iframe"> </iframe>
+    </div>
+   </div>
+  </div>
+ </div>
+ <!-- end of container -->
+ <div class="footer">
+  <div class="container">
+   <p class="text-muted">
+    <span class="userid" data-bind="text: $root.labels.userId + ': ' + userid"></span>
+    <span class="year" data-bind="text: year + ' '+ title"></span>
+   </p>
+  </div>
+ </div>
+ <!-- JS -->
+ <script src="/js/jquery-1.11.2.min.js"></script>
+ <script src="/js/bootstrap.min.js"></script>
+ <script src="/js/async.js"></script>
+ <script src="/js/knockout-3.2.0.js"></script>
+ <script src="/js/marked.js"></script>
+ <!-- syntaxhighliter -->
+ <script src="/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+ <script src="/syntaxhighlighter_3.0.83/scripts/shBrushJScript.js"></script>
+ <script src="/syntaxhighlighter_3.0.83/scripts/shBrushXml.js"></script>
+ <script src="/syntaxhighlighter_3.0.83/scripts/shBrushJava.js"></script>
+ <script src="/syntaxhighlighter_3.0.83/scripts/shBrushBash.js"></script>
+ <script src="/syntaxhighlighter_3.0.83/scripts/shBrushCss.js"></script>
+ <script src="/highlight/highlight.pack.js"></script>
+ <script src="/js/Exp3ViewModel.js"></script>
+ <script>
+    $(document).ready(
+        function() {
+          var model = new Exp3ViewModel('/resource/exp3_data.json', {
+            topic : <%= topicIndex %>,
+            subtopic : <%= subtopicIndex %>
+          }, function() {
+            // <title> is to be obtained from the model
+            ko.applyBindings(model, document.querySelector('html'));
+            // mark it as the binidings has been done
+            model.hasApplied = true;
+          });
+          $('#code-template-btn').bind('click', function() {
+            $('#code-template').modal();
+          });
+          function setupIframeSize() {
+            var height = Math.floor($(document).height() - (30 * 2 + 26 + 20)); // modal dialog
+            $('#playground-iframe:visible').height(Math.floor(height));
+            $('#playground-iframe:visible').width(
+                Math.floor($('#playground .modal-body').width() - 1));
+          }
+          $('#playground-btn').bind('click', function() {
+            var url = model.getExampleUrl();
+            $('#playground-iframe').attr('src', url);
+            setTimeout(function() {
+              $('#playground').modal();
+              setupIframeSize();
+            }, 100); // short delay is inserted here
+          });
+          // update the iframe size
+          $(window).bind('resize', setupIframeSize);
+          // popstate
+          $(window).bind('popstate', function(jqevent) {
+            var topicIndex = 0;
+            var subtopicIndex = 0;
+            if (jqevent.originalEvent) {
+              var state = jqevent.originalEvent.state;
+              if (state) {
+                topicIndex = state.topic;
+                subtopicIndex = state.subtopic;
+              }
+            }
+            // close modal dialogs
+            $("#code-template").modal('hide');
+            $("#playground").modal('hide');
+            // use replaceState
+            model.selectTopic(topicIndex, subtopicIndex, null);
+          });
+        });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+$(document).ready(function(){var n="http://"+document.location.host+"/bbs",e=new SampleBBS(n,$("#board"));$("#update_button").on("click",function(){e.updateBBS()}),$("#send_button").on("click",function(){e.send()}),$("#message").on("keypress",function(n){13==n.keyCode&&e.send()}),e.updateBBS()});

@@ -1,0 +1,1 @@
+$(document).ready(function(){var n=document.getElementById("canvas"),c=new DrawCircle(n);$("#clear_button").on("click",function(){c.clear()})});

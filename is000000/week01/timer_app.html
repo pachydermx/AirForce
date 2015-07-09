@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>タイマー機能の応用</title>
+<!-- jQueryの読み込み -->
+<script src="/js/jquery.js"></script>
+<!-- JavaScriptの読み込み -->
+<script src="./js/timer_app.js"></script>
+<link rel="stylesheet" type="text/css" href="css/timer_app.css">
+</head>
+<body>
+<h1>信号シミュレーター</h1>
+<!-- ここから -->
+<ul>
+	<li>
+		<label for="green_time">緑の信号</label>
+		<input id="green_time" value="1000">
+	</li>
+	<li>
+		<label for="yellow_time">黄色の信号</label>
+		<input id="yellow_time" value="500">
+	</li>
+	<li>
+		<span>赤の信号</span>
+		<input id="red_time" value="1000" disabled="disabled">
+	</li>
+</ul>
+<table id="cross">
+	<tr>
+		<td></td>
+		<td class="road">
+			<div id="signal_n" class="signal">
+				<table>
+					<tr>
+						<td class="red"></td>
+						<td class="yellow"></td>
+						<td class="green"></td>
+					</tr>
+				</table>
+			</div>
+
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td class="road">
+			<div id="signal_w" class="signal">
+				<table>
+					<tr>
+						<td class="red"></td>
+						<td class="yellow"></td>
+						<td class="green"></td>
+					</tr>
+				</table>
+			</div>
+
+		</td>
+		<td class="road"></td>
+		<td class="road">
+			<div id="signal_e" class="signal">
+				<table>
+					<tr>
+						<td class="red"></td>
+						<td class="yellow"></td>
+						<td class="green"></td>
+					</tr>
+				</table>
+			</div>
+
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td class="road">
+			<div id="signal_s" class="signal">
+				<table>
+					<tr>
+						<td class="red"></td>
+						<td class="yellow"></td>
+						<td class="green"></td>
+					</tr>
+				</table>
+			</div>
+
+		</td>
+		<td></td>
+	</tr>
+</table>
+
+
+<!-- ここまで -->
+</body>
+</html>

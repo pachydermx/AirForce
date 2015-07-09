@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" >
+<title>チャットアプリケーション</title>
+<!-- jQueryの読み込み -->
+<script src="/js/jquery.js"></script>
+<!-- JavaScriptファイルの読み込み -->
+<!-- 必要に応じてJavaScriptファイルを追加する -->
+<script src="./js/DrawBrush.js"></script>
+<script src="./js/ChatApp.js"></script>
+<script src="./js/chat_app.js"></script>
+
+</head>
+<body>
+<h1>チャットアプリケーション</h1>
+<!-- ここから -->
+<p>名前: <input type="text" id="name">
+<button id="connect_button">Connect</button>
+<button id="disconnect_button">Disconnect</button></p>
+<p>
+
+ <canvas id="canvas" width="480" height="270"
+  style="border-style: dotted; border-width: 1px; padding: 0px; margin: 10px; float: left"></canvas>
+ <div style="margin: 10px; float: left">
+	<button id="clear_button">clear</button> 
+ </div>
+<hr style="clear:both">
+<p>
+<input type="text" id="message" size="80">
+<button id="send_button">送信</button>
+</p>
+<hr>
+<div id="console"></div>
+
+
+<!-- ここまで -->
+</body>
+</html>

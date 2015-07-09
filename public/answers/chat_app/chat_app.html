@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" >
+<title>チャットアプリケーション(テキスト＋ブラシ)</title>
+<!-- jQueryの読み込み -->
+<script src="/js/jquery.js"></script>
+<!-- JavaScriptファイルの読み込み -->
+<script src="./js/DrawBrush.js"></script>
+<script src="./js/TextChat.js"></script>
+<script src="./js/DrawingChat.js"></script>
+<script src="./js/chat_app.js"></script>
+</head>
+<body>
+<h1>チャットアプリケーション(テキスト+ブラシ)</h1>
+<!-- ここから -->
+<p>名前: <input type="text" id="name">
+<button id="connect_button">Connect</button>
+<button id="disconnect_button">Disconnect</button></p>
+<!-- お絵かきエリア -->
+<div style="width: 502px; height: 292px; float: left">
+ <canvas id="canvas" width="480" height="270"
+   style="border-style: dotted; border-width: 1px; padding: 0px; margin: 10px; position: absolute">
+ </canvas>
+</div>
+<div style="margin: 10px; float: left">
+ <button id="clear_button">clear</button>
+</div>
+<div style="clear: both"></div>
+<!-- テキストエリア -->
+<p>
+<input type="text" id="message" size="80">
+<button id="send_button">送信</button>
+</p>
+<!-- ログエリア -->
+<hr>
+<div id="console"></div>
+<!-- ここまで -->
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>一行掲示板(編集・削除機能付き)</title>
+<style>
+table {
+ border-collapse: separate; /* セル間の間隔をあける */
+ border-spacing: 4px;
+ width: 100%; /* 横幅一杯に広げる */
+ table-layout: fixed; /* セル幅を固定にする */
+}
+tr:nth-child(odd) {
+  background-color: #f0f0f0;
+}
+tr:nth-child(even) {
+  background-color: #d3d3d3;
+}
+th, td {
+ border-width: 0px;
+ padding: 4px 4px 4px 6px;
+}
+/* ヘッダは背景色を変える */
+th {
+ background-color: #696969;
+ color: #ffffff;
+}
+
+.delete_button {
+ text-align: center;
+ padding: 0px;
+}
+.delete_button:hover {
+ cursor: pointer;
+ box-shadow: 0px 0px 3px 2px salmon;
+ background-color: #ffffff;
+}
+tr.delete_selected {
+ background-color: khaki
+}
+
+#name, #message {
+ font-size: 100%;
+ font-family: sans-serif;
+}
+
+#name:focus, #message:focus, .edit_message:focus {
+ box-shadow: 0px 0px 3px 2px slateblue;
+}
+
+/* コラムごとに幅を指定 */
+th.date {
+ width: 20%;
+} 
+th.name {
+ width: 20%;
+}
+th.message {
+ width: 55%;
+}
+</style>
+<!-- fontawesome -->
+<link href="/font-awesome-4.0.3/css/font-awesome.css" rel="stylesheet">
+<!-- jQueryの読み込み -->
+<script src="/js/jquery.js"></script>
+<!-- JavaScriptの読み込み -->
+<script src="./js/SampleBBS.js"></script>
+<script src="./js/sample_bbs.js"></script>
+</head>
+<body>
+<h1>一行掲示板(編集・削除機能付き)</h1>
+<!-- ここから -->
+<div id="board">
+</div>
+<p><button id="update_button">掲示板の更新</button></p>
+<hr>
+<p>
+<input type="text" id="name" size="12" value="YourName">
+<input type="text" id="message" size="80" value="YourMessage">
+<button id="send_button">送信</button>
+</p>
+<!-- ここまで -->
+</body>
+</html>

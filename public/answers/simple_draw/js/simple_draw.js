@@ -1,0 +1,1 @@
+$(document).ready(function(){var e=document.getElementById("canvas"),n=new SimpleDraw(e);$("#clear_button").on("click",function(){n.clear()}),$('input[name="drawing_mode"]').on("change",function(){n.setMode(this.value)}),$('input[name="drawing_mode"][value="'+n.mode+'"]').prop("checked",!0)});

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>お絵かきプログラム</title>
+<!-- jQueryの読み込み -->
+<script src="/js/jquery.js"></script>
+<!-- JavaScriptの読み込み -->
+<script src="./js/SimpleDraw.js"></script>
+<script src="./js/simple_draw.js"></script>
+</head>
+<body>
+<h1>お絵かきプログラム</h1>
+<!-- ここから -->
+
+ 
+<div style="width: 480px; height: 270px; float: left; margin-right: 10px;">
+ <canvas id="canvas" width="480" height="270"
+  style="position: absolute; border-style: dotted; border-width: 1px; padding: 0px; margin: 10px; float: left"></canvas>
+</div>
+ <div style="margin: 10px; float: left">
+	<button id="clear_button">clear</button> 
+	<br>
+	<input type="radio" name="drawing_mode" value="brush" />Brush
+	<input type="radio" name="drawing_mode" value="pen" />Pen
+	<input type="radio" name="drawing_mode" value="rect" />Rect
+	<br>
+	<label>Color</label>
+	<br>
+	<div style="width: 50px; height: 50px;">
+		<div id="preview"></div>
+	</div>
+	<br>
+	<label>Red</label>
+	<input type="range" name="red" min="0" max="255">
+	<br>
+	<label>Green</label>
+	<input type="range" name="green" min="0" max="255">
+	<br>
+	<label>Blue</label>
+	<input type="range" name="blue" min="0" max="255">
+	<br>
+	<label>Alpha</label>
+	<input type="range" name="alpha" min="0" max="1" step="0.01">
+	<br>
+	<label>Size</label>
+	<input type="range" name="size" min="0" max="50" step="0.5">
+ </div>
+
+
+<!-- ここまで -->
+</body>
+</html>

@@ -1,0 +1,1 @@
+$(document).ready(function(){var n=document.getElementById("canvas"),c=new RandomDraw(n);$("#clear_button").on("click",function(){c.clear()}),$("#draw_button").on("click",function(){c.draw()})});

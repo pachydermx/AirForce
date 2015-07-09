@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#greeting_button").on("click",function(){var n="こんにちは，"+$("#name").val()+" さん";$("#greeting").text(n)})});

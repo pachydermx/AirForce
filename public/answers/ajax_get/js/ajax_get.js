@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#get_button").on("click",function(){$.ajax({url:"/data/"+$("#filename").val()}).done(function(t){$("#result").text(t)}).fail(function(t){$("#result").text(t.status+" "+t.statusText)})})});

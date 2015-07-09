@@ -1,0 +1,1 @@
+$(document).ready(function(){var n=document.getElementById("canvas"),c=new DrawBrush(n);$("#clear_button").on("click",function(){c.clear()})});

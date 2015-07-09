@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>お絵かきプログラム</title>
+<!-- jQueryの読み込み -->
+<script src="/js/jquery.js"></script>
+<!-- JavaScriptの読み込み -->
+<script src="./js/SimpleDraw.js"></script>
+<script src="./js/simple_draw.js"></script>
+</head>
+<body>
+<h1>お絵かきプログラム</h1>
+<!-- ここから -->
+<div style="width: 502px; height: 292px; float: left">
+ <canvas id="canvas" width="480" height="270"
+   style="border-style: dotted; border-width: 1px; padding: 0px; margin: 10px; position: absolute">
+ </canvas>
+</div>
+<div style="margin: 10px; float:left">
+<p><button id="clear_button">clear</button></p>
+<p>
+<label><input type="radio" name="drawing_mode" value="brush" />ブラシ</label>
+<label><input type="radio" name="drawing_mode" value="pen" />ペン</label>
+<label><input type="radio" name="drawing_mode" value="rect" />四角形</label>
+</p>
+</div>
+<div style="clear: both"></div>
+<!-- ここまで -->
+</body>
+</html>

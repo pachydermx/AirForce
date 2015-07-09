@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#random_button").on("click",function(){var n=Number($("#limit").val()),o=Math.floor(Math.random()*n);$("#random").text(o)})});
