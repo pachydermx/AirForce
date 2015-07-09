@@ -4,6 +4,7 @@ function stage(enemyList) {
 	this.timers = [];
 }
 
+// start stage
 stage.prototype.play = function () {
 	for (var i in this.enemyList){
 		var item = this.enemyList[i];
