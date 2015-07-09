@@ -2,16 +2,17 @@
     <head>
         <title>AirForce</title>
         <link rel="stylesheet" type="text/css" href="default.css">
-        <script src="jquery.js"></script>
-        <script src="objectList.js"></script>
-        <script src="unit.js"></script>
-        <script src="player.js"></script>
-        <script src="enemy.js"></script>
-        <script src="enemyType.js"></script>
-        <script src="supply.js"></script>
-        <script src="bullet.js"></script>
-        <script src="enemyBullet.js"></script>
-        <script src="game.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/objectList.js"></script>
+        <script src="js/unit.js"></script>
+        <script src="js/player.js"></script>
+        <script src="js/enemy.js"></script>
+        <script src="js/enemyType.js"></script>
+        <script src="js/supply.js"></script>
+        <script src="js/bullet.js"></script>
+        <script src="js/enemyBullet.js"></script>
+        <script src="js/game.js"></script>
+		<script src="js/communicator.js"></script>
     </head>
     <body>
         <table>
@@ -37,5 +38,17 @@
             </td></tr>
         </table>
         <div id="console"></div>
+		<p>名前: <input type="text" id="name">
+		<button id="connect_button">Connect</button>
+		<button id="disconnect_button">Disconnect</button></p>
+		<p>
+		<input type="text" id="message" size="80">
+		<button id="send_button">送信</button>
+		</p>
+		<hr>
+		<p>
+		<button id="clear_all_button">(デバッグ用)すべての履歴を消去</button>
+		</p>
+		<div id="console"></div>
     </body>
 </html>
