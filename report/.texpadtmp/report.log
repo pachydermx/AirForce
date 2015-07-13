@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.6.10)  13 JUL 2015 12:43
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.6.10)  13 JUL 2015 12:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -153,14 +153,14 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 4.
  [2
 
-] (./comment-Ren.tex)) [3] (/Users/pachydermx/Git/AirForce/report/.texpadtmp/report.aux) ) 
+] (./comment-Ren.tex) [3]) [4] (/Users/pachydermx/Git/AirForce/report/.texpadtmp/report.aux) ) 
 Here is how much of TeX's memory you used:
  2039 strings out of 494008
  29232 string characters out of 6154472
- 86506 words of memory out of 5000000
+ 87506 words of memory out of 5000000
  5495 multiletter control sequences out of 15000+600000
  13716 words of font info for 53 fonts, out of 8000000 for 9000
  745 hyphenation exceptions out of 8191
- 26i,6n,32p,255b,233s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 26i,6n,32p,659b,233s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /Users/pachydermx/Git/AirForce/report/.texpadtmp/report.dvi (3 pages, 8496 bytes).
+Output written on /Users/pachydermx/Git/AirForce/report/.texpadtmp/report.dvi (4 pages, 9944 bytes).

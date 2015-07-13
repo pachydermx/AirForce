@@ -16,6 +16,6 @@
 \contentsline {subsubsection}{\numberline {6.1.1}プログラム上}{3}
 \contentsline {subsubsection}{\numberline {6.1.2}機能上}{3}
 \contentsline {subsubsection}{\numberline {6.1.3}チームワーク}{3}
-\contentsline {subsection}{\numberline {6.2}感想}{3}
-\contentsline {subsubsection}{\numberline {6.2.1}REN Jimin}{3}
-\contentsline {subsubsection}{\numberline {6.2.2}ZHENG Yuhui}{3}
+\contentsline {subsection}{\numberline {6.2}感想}{4}
+\contentsline {subsubsection}{\numberline {6.2.1}REN Jimin}{4}
+\contentsline {subsubsection}{\numberline {6.2.2}ZHENG Yuhui}{4}
