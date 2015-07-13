@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.6.10)  13 JUL 2015 13:09
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.6.10)  13 JUL 2015 13:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -223,10 +223,10 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 Here is how much of TeX's memory you used:
  2051 strings out of 494008
  29352 string characters out of 6154472
- 86506 words of memory out of 5000000
+ 86518 words of memory out of 5000000
  5501 multiletter control sequences out of 15000+600000
  13716 words of font info for 53 fonts, out of 8000000 for 9000
  745 hyphenation exceptions out of 8191
  26i,6n,32p,659b,233s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /Users/pachydermx/Git/AirForce/report/.texpadtmp/report.dvi (10 pages, 12820 bytes).
+Output written on /Users/pachydermx/Git/AirForce/report/.texpadtmp/report.dvi (10 pages, 12840 bytes).
