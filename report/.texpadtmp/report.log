@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.6.10)  13 JUL 2015 13:26
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.6.10)  13 JUL 2015 15:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -170,8 +170,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--9
  []
 
 [4]
-File: supply.eps Graphic file (type eps)
- <supply.eps>
+File: game.eps Graphic file (type eps)
+ <game.eps>
 Overfull \hbox (24.05522pt too wide) in paragraph at lines 12--14
 [][]
  []
@@ -200,9 +200,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
 
-[7]
 File: finish.eps Graphic file (type eps)
- <finish.eps>)
+<finish.eps>)
 Overfull \hbox (24.05522pt too wide) in paragraph at lines 23--37
 [][]
  []
@@ -212,21 +211,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--37
 
  []
 
-[8] (./study.tex
+[7] (./study.tex
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 4.
  (/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 4.
- [9] (./comment-Ren.tex)) [10] (/Users/pachydermx/Git/AirForce/report/.texpadtmp/report.aux) ) 
+ [8] (./comment-Ren.tex)) [9] (/Users/pachydermx/Git/AirForce/report/.texpadtmp/report.aux) ) 
 Here is how much of TeX's memory you used:
  2051 strings out of 494008
- 29352 string characters out of 6154472
- 86518 words of memory out of 5000000
+ 29348 string characters out of 6154472
+ 87525 words of memory out of 5000000
  5501 multiletter control sequences out of 15000+600000
  13716 words of font info for 53 fonts, out of 8000000 for 9000
  745 hyphenation exceptions out of 8191
  26i,6n,32p,659b,233s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /Users/pachydermx/Git/AirForce/report/.texpadtmp/report.dvi (10 pages, 12840 bytes).
+Output written on /Users/pachydermx/Git/AirForce/report/.texpadtmp/report.dvi (9 pages, 12696 bytes).
