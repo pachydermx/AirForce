@@ -1,3 +1,19 @@
 \subsection{クラス図}
 	\insertfigure{12}{diagram.eps}
 \subsection{各クラスの説明}
+	\begin{itemize}
+		\item game：ゲームの運行を制御し，全体モジュールのベースとして総合クラスである。
+		\item objectList：unitの種類（enemy, supply, bullet etc.）により保存用オブジェクトリストである。
+		\item stage：段階的に敵戦機の種類とか速度とか再生時間とか設計し再生関数を呼び出し用のクラスである。
+		\item unit：playerとenemyなど独立単位のプロトタイプクラスである。幅と長さ、座標、スピードなど基本の属性初始化し，公用動作メソッドも定義する。
+		\item player：プレーヤー戦機のクラスである。unitから継承し，その上に特有なライフ値と火力に関する属性を追加する
+		\item enemy：敵戦機のクラスである。unitから継承し，その上に特有なライフ値と火力と戦機種類に関する属性を追加する
+			\begin{itemize}
+				\item enemyA：普通の敵戦機のクラスである。
+				\item enemyB：キャプテンの敵戦機のクラスである。
+				\item enemyC：ボス敵戦機のクラスである。
+			\end{itemize}
+		\item supply：敵を倒れた時出る供給である。二つ種類で，ライフ値か火力の一つサポートする。
+		\item bullet：プレーヤー戦機から発射される弾である。
+		\item enemyBullet：敵戦機から発射される弾である。
+	\end{itemize}
