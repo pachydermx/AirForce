@@ -1,22 +1,20 @@
-\contentsline {section}{\numberline {1}目的}{3}
-\contentsline {section}{\numberline {2}プログラムの機能}{3}
-\contentsline {section}{\numberline {3}外部仕様}{3}
-\contentsline {subsection}{\numberline {3.1}起動方法}{3}
-\contentsline {subsection}{\numberline {3.2}操作方法}{3}
-\contentsline {subsection}{\numberline {3.3}画面遷移}{3}
-\contentsline {section}{\numberline {4}内部仕様}{4}
-\contentsline {subsection}{\numberline {4.1}クラス図}{4}
-\contentsline {subsection}{\numberline {4.2}各クラスの説明}{4}
+\contentsline {section}{\numberline {1}目的}{2}
+\contentsline {section}{\numberline {2}プログラムの機能}{2}
+\contentsline {section}{\numberline {3}外部仕様}{2}
+\contentsline {subsection}{\numberline {3.1}起動方法}{2}
+\contentsline {subsection}{\numberline {3.2}操作方法}{2}
+\contentsline {subsection}{\numberline {3.3}画面遷移}{2}
+\contentsline {section}{\numberline {4}内部仕様}{2}
+\contentsline {subsection}{\numberline {4.1}クラス図}{2}
+\contentsline {subsection}{\numberline {4.2}各クラスの説明}{3}
 \contentsline {section}{\numberline {5}実行例}{4}
 \contentsline {subsection}{\numberline {5.1}ディスクトップ}{4}
 \contentsline {subsection}{\numberline {5.2}プログラム起動した直後}{4}
-\contentsline {subsection}{\numberline {5.3}ゲーム画面}{5}
+\contentsline {subsection}{\numberline {5.3}ゲーム画面}{4}
 \contentsline {subsection}{\numberline {5.4}ゲームオーバー}{5}
 \contentsline {section}{\numberline {6}工夫した点と考察}{5}
 \contentsline {subsection}{\numberline {6.1}工夫した点}{5}
 \contentsline {subsubsection}{\numberline {6.1.1}プログラム上}{5}
 \contentsline {subsubsection}{\numberline {6.1.2}機能上}{5}
 \contentsline {subsubsection}{\numberline {6.1.3}チームワーク}{5}
-\contentsline {subsection}{\numberline {6.2}感想}{6}
-\contentsline {subsubsection}{\numberline {6.2.1}REN Jimin}{6}
-\contentsline {subsubsection}{\numberline {6.2.2}ZHENG Yuhui}{6}
+\contentsline {subsection}{\numberline {6.2}感想}{5}
