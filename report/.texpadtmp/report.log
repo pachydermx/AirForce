@@ -1,16 +1,16 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.6.10)  14 JUL 2015 11:32
+This is e-pTeX, Version 3.14159265-p3.6-141210-2.6 (utf8.euc) (TeX Live 2015) (preloaded format=platex 2015.7.14)  14 JUL 2015 15:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**report.tex
+**report.tex -output-directory=/Users/UniVoid/workspace/33188/AirForce/report/.texpadtmp /Users/UniVoid/workspace/33188/AirForce/report/report.tex
 (./report.tex
-pLaTeX2e <2006/11/10> (based on LaTeX2e <2011/06/27> patch level 0)
-Babel <3.9f> and hyphenation patterns for 78 languages loaded.
-(/usr/local/texlive/2013/texmf-dist/tex/platex/base/jarticle.cls
+pLaTeX2e <2006/11/10> (based on LaTeX2e <2015/01/01> patch level 0)
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+(/usr/local/texlive/2015/texmf-dist/tex/platex/base/jarticle.cls
 Document Class: jarticle 2006/06/27 v1.6 Standard pLaTeX class
 \c@@paper=\count81
-(/usr/local/texlive/2013/texmf-dist/tex/platex/base/jsize10.clo
+(/usr/local/texlive/2015/texmf-dist/tex/platex/base/jsize10.clo
 File: jsize10.clo 2006/06/27 v1.6 Standard pLaTeX file (size option)
 )
 \c@part=\count82
@@ -30,8 +30,8 @@ LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
 \@lnumwidth=\dimen119
 \bibindent=\dimen120
 \heisei=\count90
-) (/usr/local/texlive/2013/texmf-dist/tex/latex/listings/listings.sty (/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/listings.sty (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
 )
 \lst@mode=\count91
@@ -46,43 +46,39 @@ Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \lst@newlines=\count95
 \lst@lineno=\count96
 \lst@maxwidth=\dimen124
- (/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
 \c@lstnumber=\count97
 \lst@skipnumbers=\count98
 \lst@framebox=\box42
-) (/usr/local/texlive/2013/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2007/02/22 1.4 listings configuration
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2014/09/06 1.5e listings configuration
 ))
-Package: listings 2007/02/22 1.4 (Carsten Heinz)
- (/usr/local/texlive/2013/texmf-dist/tex/latex/listings/jlisting.sty
-Package: jlisting 2006/02/20 0.2 (Thor)
-\lst@nextchar=\count99
-\lst@inputfile=\read1
-) (/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/trig.sty
+Package: listings 2014/09/06 1.5e (Carsten Heinz)
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
-) (/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/graphics.cfg
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: dvips.def on input line 91.
- (/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/dvips.def
-File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+Package graphics Info: Driver file: dvips.def on input line 94.
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/dvips.def
+File: dvips.def 2014/10/14 v3.0j Driver-dependent file (DPC,SPQR)
 ))
 \Gin@req@height=\dimen125
 \Gin@req@width=\dimen126
-) (/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
- (/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/color.cfg
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2014/10/28 v1.1a Standard LaTeX Color (DPC)
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package color Info: Driver file: dvips.def on input line 130.
- (/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/dvipsnam.def
-File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
-)) (/Users/pachydermx/Git/AirForce/report/.texpadtmp/report.aux)
+Package color Info: Driver file: dvips.def on input line 142.
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2014/10/14 v3.0j Driver-dependent file (DPC,SPQR)
+)) (/Users/UniVoid/workspace/33188/AirForce/report/.texpadtmp/report.aux)
 \openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
@@ -101,7 +97,7 @@ LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
 LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
-\c@lstlisting=\count100
+\c@lstlisting=\count99
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 23.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -112,7 +108,7 @@ LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 24.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 24.
- (/Users/pachydermx/Git/AirForce/report/.texpadtmp/report.toc
+ (/Users/UniVoid/workspace/33188/AirForce/report/.texpadtmp/report.toc
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
@@ -132,46 +128,45 @@ LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 1.
-) (./internal.tex [2
-
-]
-File: diagram.eps Graphic file (type eps)
- <diagram.eps>
-Overfull \hbox (24.05522pt too wide) in paragraph at lines 4--5
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4--5
-
- []
-
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 7.
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 7.
- [3]) (./sample.tex
+ [2
+
+]
+File: scenes.eps Graphic file (type eps)
+ <scenes.eps>) (./internal.tex
+File: diagram.eps Graphic file (type eps)
+ <diagram.eps> [3]) (./sample.tex [4]
 File: desktop.eps Graphic file (type eps)
- <desktop.eps> [4]
+ <desktop.eps>
 File: start.eps Graphic file (type eps)
  <start.eps> [5]
 File: game.eps Graphic file (type eps)
  <game.eps>
 File: boss.eps Graphic file (type eps)
- <boss.eps>
+ <boss.eps> [6]
 File: gameover.eps Graphic file (type eps)
- <gameover.eps> [6]
+ <gameover.eps>
 File: finish.eps Graphic file (type eps)
- <finish.eps>) (./study.tex [7] (./comment-Ren.tex)) [8] (/Users/pachydermx/Git/AirForce/report/.texpadtmp/report.aux) ) 
-Here is how much of TeX's memory you used:
- 2051 strings out of 494008
- 29348 string characters out of 6154472
- 86498 words of memory out of 5000000
- 5501 multiletter control sequences out of 15000+600000
- 13716 words of font info for 53 fonts, out of 8000000 for 9000
- 745 hyphenation exceptions out of 8191
- 26i,6n,32p,659b,233s stack positions out of 5000i,500n,10000p,200000b,80000s
+ <finish.eps>) [7] (./study.tex
+./study.tex:4: Text line contains an invalid character.
+l.4 ...ププロパティーにアサインすることにより、^^H
+                                                  無駄なメモリ使用を削除し、...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
 
-Output written on /Users/pachydermx/Git/AirForce/report/.texpadtmp/report.dvi (8 pages, 17284 bytes).
+[8]) [9] (/Users/UniVoid/workspace/33188/AirForce/report/.texpadtmp/report.aux) ) 
+Here is how much of TeX's memory you used:
+ 2032 strings out of 493777
+ 28963 string characters out of 6151334
+ 87457 words of memory out of 5000000
+ 5522 multiletter control sequences out of 15000+600000
+ 13716 words of font info for 53 fonts, out of 8000000 for 9000
+ 929 hyphenation exceptions out of 8191
+ 26i,6n,32p,549b,233s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on /Users/UniVoid/workspace/33188/AirForce/report/.texpadtmp/report.dvi (9 pages, 16512 bytes).
