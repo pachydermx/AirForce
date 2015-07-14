@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.6.10)  14 JUL 2015 11:22
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.6.10)  14 JUL 2015 11:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -132,7 +132,9 @@ LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 1.
-) (./internal.tex
+) (./internal.tex [2
+
+]
 File: diagram.eps Graphic file (type eps)
  <diagram.eps>
 Overfull \hbox (24.05522pt too wide) in paragraph at lines 4--5
@@ -144,23 +146,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--5
 
  []
 
-[2
-
-]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 7.
- (/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 7.
- [3]) (./sample.tex [4]) (./study.tex (./comment-Ren.tex)) [5] [6] (/Users/pachydermx/Git/AirForce/report/.texpadtmp/report.aux) ) 
+ [3]) (./sample.tex
+File: desktop.eps Graphic file (type eps)
+ <desktop.eps> [4]
+File: start.eps Graphic file (type eps)
+ <start.eps> [5]
+File: game.eps Graphic file (type eps)
+ <game.eps>
+File: boss.eps Graphic file (type eps)
+ <boss.eps>
+File: gameover.eps Graphic file (type eps)
+ <gameover.eps> [6]
+File: finish.eps Graphic file (type eps)
+ <finish.eps>) (./study.tex [7] (./comment-Ren.tex)) [8] (/Users/pachydermx/Git/AirForce/report/.texpadtmp/report.aux) ) 
 Here is how much of TeX's memory you used:
- 2039 strings out of 494008
- 29232 string characters out of 6154472
- 87525 words of memory out of 5000000
- 5495 multiletter control sequences out of 15000+600000
+ 2051 strings out of 494008
+ 29348 string characters out of 6154472
+ 86498 words of memory out of 5000000
+ 5501 multiletter control sequences out of 15000+600000
  13716 words of font info for 53 fonts, out of 8000000 for 9000
  745 hyphenation exceptions out of 8191
  26i,6n,32p,659b,233s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /Users/pachydermx/Git/AirForce/report/.texpadtmp/report.dvi (6 pages, 15668 bytes).
+Output written on /Users/pachydermx/Git/AirForce/report/.texpadtmp/report.dvi (8 pages, 17284 bytes).
