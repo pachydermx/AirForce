@@ -19,54 +19,46 @@ var isPlayer = false;
 // x in [0, 100]
 
 $(document).ready(function () {
-    $(window).keydown( function (e) {
-        keyMap[e.keyCode] = true;
-        $("#console").text(e.keyCode + " Down");
-    });
-    
-    $(window).keyup( function (e) {
-        keyMap[e.keyCode] = false;
-        $("#console").text(e.keyCode + " Up");
-    });
-    
-    // configure game
-    game = $("#game");
-    player = new player();
+	$(window).keydown( function (e) {
+			keyMap[e.keyCode] = true;
+			$("#console").text(e.keyCode + " Down");
+	});
+
+	$(window).keyup( function (e) {
+			keyMap[e.keyCode] = false;
+			$("#console").text(e.keyCode + " Up");
+	});
+
+	// configure game
+	game = $("#game");
+	player = new player();
 	player.x = size[0] / 2;
 	player.y = size[1] - 100;
-    player.init($("#player"), null);
-	
+	player.init($("#player"), null);
+
 	// configure communicator
-	  // WebSocketを呼び出すURL
-	  var url = 'ws://' + document.location.host;
-	  // consoleに対応するHTML要素
-	  var console = document.getElementById('console');
-	  // ボタンの状態を更新する関数
-	  function updateButtons() {
+	// WebSocketを呼び出すURL
+	var url = 'ws://' + document.location.host;
+	// consoleに対応するHTML要素
+	var console = document.getElementById('console');
+	// ボタンの状態を更新する関数
+	function updateButtons() {
 		if (communicator.socket == null) {
-		  // WebSocketが開いていなければ，コネクトボタンを有効にする
-		  $('#connect_button').prop('disabled', false);
-		  $('#name').prop('disabled', false);
-		  $('#disconnect_button').prop('disabled', true);
-		  $('#send_button').prop('disabled', true);
+			// WebSocketが開いていなければ，コネクトボタンを有効にする
+			$('#connect_button').prop('disabled', false);
+			$('#name').prop('disabled', false);
+			$('#disconnect_button').prop('disabled', true);
+			$('#send_button').prop('disabled', true);
 		} else {
-		  // WebSocketが開いている場合
-		  $('#connect_button').prop('disabled', true);
-		  $('#name').prop('disabled', true);
-		  $('#disconnect_button').prop('disabled', false);
-		  $('#send_button').prop('disabled', false);
+			// WebSocketが開いている場合
+			$('#connect_button').prop('disabled', true);
+			$('#name').prop('disabled', true);
+			$('#disconnect_button').prop('disabled', false);
+			$('#send_button').prop('disabled', false);
 		}
-	  };
+	};
 
-	  communicator = new Communicator(url, console, updateButtons);
-
-	  // メッセージの入力エリアのデータを送信する
-	  function sendMessage() {
-		communicator.sendJsonMsg({
-		  type: 'message',
-		  text: $('#message').val()
-		});
-	  }
+	communicator = new Communicator(url, console, updateButtons);
 	
 	function sendEnemy(enemyType) {
 		communicator.sendJsonMsg({
@@ -77,115 +69,115 @@ $(document).ready(function () {
 
 	// configure connect buttons
 	// connect as defender
-	  $('#connect_defender_button').on('click', function() {
-		  //disable player
-		  player.width = 0;
-		  player.height = 0;
-		  player.dom.hide();
-		  
+	$('#connect_defender_button').on('click', function() {
+		//disable player
+		player.width = 0;
+		player.height = 0;
+		player.dom.hide();
+
 		communicator.connect($('#name').val());
-	  });
-	
+	});
+
 	// connect as invader
-	  $('#connect_button').on('click', function() {
+	$('#connect_button').on('click', function() {
 		communicator.connect($('#name').val());
-	  });
+	});
 
-	  $('#disconnect_button').on('click', function() {
+	$('#disconnect_button').on('click', function() {
 		communicator.disconnect();
-	  });
+	});
 
-	  $('#send_button').on('click', function() {
+	$('#send_button').on('click', function() {
 		//sendMessage();
-		  sendEnemy('enemyA');
-	  });
+		sendEnemy('enemyA');
+	});
 
-	  $('#message').on('keypress', function(event) {
+	$('#message').on('keypress', function(event) {
 		// エンターキーを入力した時にメッセージを送る
 		if (event.keyCode == 13) {
-		  sendMessage();
+			sendMessage();
 		}
-	  });
+	});
 
-	  $('#clear_all_button').on('click', function() {
+	$('#clear_all_button').on('click', function() {
 		communicator.sendJsonMsg({type: 'clearAll'});
-	  });
+	});
 
-	  // 他のブラウザとできるだけ衝突しないように名前の初期値を設定する
-	  $('#name').attr('value', (function() {
+	// 他のブラウザとできるだけ衝突しないように名前の初期値を設定する
+	$('#name').attr('value', (function() {
 		var d = new Date();
 		return 'user' + (d.getTime() % 10000);
-	  })());
+	})());
 
-	  // ボタンの表示を更新する
-	  updateButtons();
-    
-    start_loop();
-    
+	// ボタンの表示を更新する
+	updateButtons();
+
+	start_loop();
+
 });
 
 function start_loop() {
-    frameTimer = setInterval(step, 1000/frameRate);
+		frameTimer = setInterval(step, 1000/frameRate);
 }
 
 function step() {
-    // move player
-    // direction -> (x, y)
-    var direction = [0, 0]
-    // key "w" -> up 
-    if (keyMap[87]) {
-        direction[1] = -1;
-    }
-    // key "s" -> down
-    if (keyMap[83]) {
-        direction[1] = 1;
-    }
-    // key "a" -> left
-    if (keyMap[65]) {
-        direction[0] = -1;
-    }
-    // key "d" -> right
-    if (keyMap[68]) {
-        direction[0] = 1;
-    }
-    //player move
-    player.move(direction[0], direction[1]);
-    
-    //key "j" -> fire
-    if (keyMap[74]) {
-        player.fire();
-    }
-    
-    // move enemys
-    for (var i in enemys.items) {
-        try {
-            enemys.items[i].step();
-            enemys.items[i].hit_check();
-            enemys.items[i].fire();
-        } catch (error) {
-            //console.log(error);
-        }
-    }
-    // move bullets
-    for (var i in playerBullets.items) {
-        playerBullets.items[i].step();
-    }
-    for (var i in enemyBullets.items) {
-        enemyBullets.items[i].step();
-    }
-    // move supply
-    for (var i in supplyItems.items) {
-        supplyItems.items[i].step();
-    }
-    // check hit
-    player.hit_check();
-           
-    // counter
-    counter++;
+		// move player
+		// direction -> (x, y)
+		var direction = [0, 0]
+		// key "w" -> up 
+		if (keyMap[87]) {
+				direction[1] = -1;
+		}
+		// key "s" -> down
+		if (keyMap[83]) {
+				direction[1] = 1;
+		}
+		// key "a" -> left
+		if (keyMap[65]) {
+				direction[0] = -1;
+		}
+		// key "d" -> right
+		if (keyMap[68]) {
+				direction[0] = 1;
+		}
+		//player move
+		player.move(direction[0], direction[1]);
+		
+		//key "j" -> fire
+		if (keyMap[74]) {
+				player.fire();
+		}
+		
+		// move enemys
+		for (var i in enemys.items) {
+				try {
+						enemys.items[i].step();
+						enemys.items[i].hit_check();
+						enemys.items[i].fire();
+				} catch (error) {
+						//console.log(error);
+				}
+		}
+		// move bullets
+		for (var i in playerBullets.items) {
+				playerBullets.items[i].step();
+		}
+		for (var i in enemyBullets.items) {
+				enemyBullets.items[i].step();
+		}
+		// move supply
+		for (var i in supplyItems.items) {
+				supplyItems.items[i].step();
+		}
+		// check hit
+		player.hit_check();
+					 
+		// counter
+		counter++;
 }
 
 function add_enemy (enemyType, x, bonus, speedX) {
-    var new_enemy;
+		var new_enemy;
 	switch (enemyType){
 		case "enemyA":
 			new_enemy = new enemyA();
@@ -206,29 +198,29 @@ function add_enemy (enemyType, x, bonus, speedX) {
 	if (typeof speedX !== "undefined"){
 		new_enemy.speed[0] = speedX;
 	}
-    var new_id = enemys.add(new_enemy);
-    game.append("<div id='enemy_" + new_id + "' class='" + enemyType + " enemy object'></div>");
-    // random(TODO)
-    enemys.items[new_id].x = size[0] * x / 100;
-    enemys.items[new_id].y = 50;
-    enemys.items[new_id].init($("#enemy_" + new_id), enemys);
+		var new_id = enemys.add(new_enemy);
+		game.append("<div id='enemy_" + new_id + "' class='" + enemyType + " enemy object'></div>");
+		// random(TODO)
+		enemys.items[new_id].x = size[0] * x / 100;
+		enemys.items[new_id].y = 50;
+		enemys.items[new_id].init($("#enemy_" + new_id), enemys);
 }
 
 function setScore (new_score) {
-    score = new_score;
-    $("#score_display").text(score);
+		score = new_score;
+		$("#score_display").text(score);
 }
-    
+		
 function gameOver (win) {
 	if (win){
 		$("#state_display").text("Mission Accomplished");
 	} else {
-        player = null;
+				player = null;
 		$("#state_display").text("Game Over");
 	}
-    //clear stage
-    for (var i=0; i<stage.timers.length; i++) {
-        clearTimeout(stage.timers[i]);
-    }
-    stage = null;
+		//clear stage
+		for (var i=0; i<stage.timers.length; i++) {
+				clearTimeout(stage.timers[i]);
+		}
+		stage = null;
 }
