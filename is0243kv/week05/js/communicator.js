@@ -29,7 +29,8 @@ Communicator.prototype.sendJsonMsg = function(jsonMsg) {
 // 受信したJSON形式のメッセージを処理する
 Communicator.prototype.handleJsonMsg = function(jsonMsg) {
 	if (jsonMsg.type === 'enemy') {
-		add_enemy(jsonMsg.enemy, 50, 'weapon');
+		add_enemy(jsonMsg.enemy, jsonMsg.position, 'weapon');
+		this.sendJsonMsg({type: 'clearAll'});
 	} else if (jsonMsg.type === 'clearAll') {
 		this.$console.empty();
 	}

@@ -15,7 +15,8 @@ var size = [320, 640];
 var game;
 var enemy_freq = 200; 
 var score = 0;
-var isPlayer = false;
+var isInvader = false;
+var enemyType = "enemyA";
 
 $(document).ready(function () {
 	$(window).keydown( function (e) {
@@ -45,12 +46,14 @@ $(document).ready(function () {
 		if (communicator.socket == null) {
 			// WebSocketが開いていなければ，コネクトボタンを有効にする
 			$('#connect_button').prop('disabled', false);
+			$('#connect_defender_button').prop('disabled',false);
 			$('#name').prop('disabled', false);
 			$('#disconnect_button').prop('disabled', true);
 			$('#send_button').prop('disabled', true);
 		} else {
 			// WebSocketが開いている場合
 			$('#connect_button').prop('disabled', true);
+			$('#connect_defender_button').prop('disabled',true);
 			$('#name').prop('disabled', true);
 			$('#disconnect_button').prop('disabled', false);
 			$('#send_button').prop('disabled', false);
@@ -59,10 +62,11 @@ $(document).ready(function () {
 
 	communicator = new Communicator(url, console, updateButtons);
 	
-	function sendEnemy(enemyType) {
+	function sendEnemy(enemyType, enemyPosition) {
 		communicator.sendJsonMsg({
 			type: 'enemy',
-			enemy: enemyType
+			enemy: enemyType,
+			position: enemyPosition
 		});
 	}
 
@@ -82,19 +86,20 @@ $(document).ready(function () {
 	// connect as invader
 	$('#connect_button').on('click', function() {
 		communicator.connect($('#name').val());
+		isInvader = true;
 		
 		start_loop();
 	});
 
 	$('#disconnect_button').on('click', function() {
 		communicator.disconnect();
+		isInvader = false;
 		// stop loop
 		clearInterval(frameTimer);
 	});
-
-	$('#send_button').on('click', function() {
-		//sendMessage();
-		sendEnemy('enemyA');
+	
+	$("#game").on('click', function (e) {
+		sendEnemy(enemyType, e.clientX);
 	});
 
 	$('#clear_all_button').on('click', function() {
@@ -118,6 +123,7 @@ function start_loop() {
 }
 
 function step() {
+	if (isInvader){
 		// move player
 		// direction -> (x, y)
 		var direction = [0, 0]
@@ -145,6 +151,22 @@ function step() {
 				player.fire();
 		}
 		
+		// check hit
+		player.hit_check();
+	} else {
+		if (keyMap[49]) {
+			enemyType = "enemyA";
+			$("#state_display").text("Enemy A");
+		}
+		if (keyMap[50]) {
+			enemyType = "enemyB";
+			$("#state_display").text("Enemy B");
+		}
+		if (keyMap[51]) {
+			enemyType = "enemyC";
+			$("#state_display").text("Enemy C");
+		}
+	}
 		// move enemys
 		for (var i in enemys.items) {
 				try {
@@ -166,8 +188,6 @@ function step() {
 		for (var i in supplyItems.items) {
 				supplyItems.items[i].step();
 		}
-		// check hit
-		player.hit_check();
 					 
 		// counter
 		counter++;
@@ -198,7 +218,7 @@ function add_enemy (enemyType, x, bonus, speedX) {
 		var new_id = enemys.add(new_enemy);
 		game.append("<div id='enemy_" + new_id + "' class='" + enemyType + " enemy object'></div>");
 		// random(TODO)
-		enemys.items[new_id].x = size[0] * x / 100;
+		enemys.items[new_id].x = x;
 		enemys.items[new_id].y = 50;
 		enemys.items[new_id].init($("#enemy_" + new_id), enemys);
 }
@@ -212,12 +232,12 @@ function gameOver (win) {
 	if (win){
 		$("#state_display").text("Mission Accomplished");
 	} else {
-				player = null;
+		player = null;
 		$("#state_display").text("Game Over");
 	}
-		//clear stage
-		for (var i=0; i<stage.timers.length; i++) {
-				clearTimeout(stage.timers[i]);
-		}
-		stage = null;
+	//clear stage
+	for (var i=0; i<stage.timers.length; i++) {
+			clearTimeout(stage.timers[i]);
+	}
+	stage = null;
 }
