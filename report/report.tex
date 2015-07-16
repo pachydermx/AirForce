@@ -2,6 +2,7 @@
 \usepackage{listings, jlisting}
 \usepackage{graphicx}
 \usepackage{color}
+\usepackage{url}
 \lstset{tabsize=2}
 
 \definecolor{sourcebackground}{rgb}{0.831, 0.831, 0.831}
@@ -11,22 +12,23 @@
 }
 
 \newcommand{\insertfigure}[2]{
-    \includegraphics[width=#1cm]{#2}
+    \includegraphics[width=#1cm]{img/#2}
 }
 
 
-\title{情報コミュニケーション創成\\レポート}
-\author{クラスB4（グループD)\\REN JIMIN - 2600130451-7}
-\date{提出日:2015年7月20日}
+\title{情報コミュニケーション学実験II/III\\% 強制改行
+（Webアプリケーション/Webアプリケーション(Ajax)）レポート}
+\author{クラスB4\\REN JIMIN - 2600130451-7\\is0243kv@ed.ritsumei.ac.jp}
+\date{提出日:2015年7月16日}
 
 \begin{document}
 \maketitle
 \tableofcontents
 \clearpage
 
-\section{目的}
+\section{ソフトウェアの名称}
 	\input{intro.tex}
-\section{プログラムの機能}
+\section{ソフトウェアの機能}
 	\input{function.tex}
 \section{外部仕様}
 	\input{external.tex}
@@ -34,6 +36,14 @@
 	\input{internal.tex}
 \section{実行例}
 	\input{sample.tex}
-\section{工夫した点と考察}
-	\input{study.tex}	
+\section{工夫した点}
+	\input{study.tex}
+\section{感想}
+	\input{comment-Ren.tex}	
+	
+
+\begin{thebibliography}{1}
+	\bibitem{web} The jQuery Foundation，jQuery API Documentation,
+	\url{http://api.jquery.com}，2015年7月.
+\end{thebibliography}
 \end{document}
