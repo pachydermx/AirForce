@@ -48,16 +48,12 @@ $(document).ready(function () {
 			// WebSocketが開いていなければ，コネクトボタンを有効にする
 			$('#connect_button').prop('disabled', false);
 			$('#connect_defender_button').prop('disabled',false);
-			$('#name').prop('disabled', false);
 			$('#disconnect_button').prop('disabled', true);
-			$('#send_button').prop('disabled', true);
 		} else {
 			// WebSocketが開いている場合
 			$('#connect_button').prop('disabled', true);
 			$('#connect_defender_button').prop('disabled',true);
-			$('#name').prop('disabled', true);
 			$('#disconnect_button').prop('disabled', false);
-			$('#send_button').prop('disabled', false);
 		}
 	};
 
@@ -101,6 +97,7 @@ $(document).ready(function () {
 		clearInterval(frameTimer);
 	});
 	
+	// send enemy
 	$("#game").on('click', function (e) {
 		if (!isInvader){
 			var supply = "null";
