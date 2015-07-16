@@ -14,6 +14,7 @@ var size = [320, 640];
 var game;
 var enemy_freq = 200; 
 var score = 0;
+var isPlayer = false;
 // [enemyType, appearTime, bonus, x, speedX]
 // x in [0, 100]
 
@@ -66,7 +67,26 @@ $(document).ready(function () {
 		  text: $('#message').val()
 		});
 	  }
+	
+	function sendEnemy(enemyType) {
+		communicator.sendJsonMsg({
+			type: 'enemy',
+			enemy: enemyType
+		});
+	}
 
+	// configure connect buttons
+	// connect as defender
+	  $('#connect_defender_button').on('click', function() {
+		  //disable player
+		  player.width = 0;
+		  player.height = 0;
+		  player.dom.hide();
+		  
+		communicator.connect($('#name').val());
+	  });
+	
+	// connect as invader
 	  $('#connect_button').on('click', function() {
 		communicator.connect($('#name').val());
 	  });
@@ -76,7 +96,8 @@ $(document).ready(function () {
 	  });
 
 	  $('#send_button').on('click', function() {
-		sendMessage();
+		//sendMessage();
+		  sendEnemy('enemyA');
 	  });
 
 	  $('#message').on('keypress', function(event) {
