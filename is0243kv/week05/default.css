@@ -4,6 +4,10 @@ body{
     margin: 0px;
 }
 
+#console {
+	display: none;
+}
+
 .object {
     position: absolute;
 }

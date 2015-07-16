@@ -79,6 +79,7 @@ $(document).ready(function () {
 		player.width = 0;
 		player.height = 0;
 		player.dom.hide();
+		$("#state_display").text("1 - Enemy A");
 
 		communicator.connect($('#name').val());
 		
@@ -101,14 +102,16 @@ $(document).ready(function () {
 	});
 	
 	$("#game").on('click', function (e) {
-		var supply = "null";
-		if (sendCounter % 3 == 0){
-			supply = "health";
-		} else if (sendCounter % 5 == 0){
-			supply = "weapon";
+		if (!isInvader){
+			var supply = "null";
+			if (sendCounter % 3 == 0){
+				supply = "health";
+			} else if (sendCounter % 5 == 0){
+				supply = "weapon";
+			}
+			sendEnemy(enemyType, e.clientX, supply);
+			sendCounter++;
 		}
-		sendEnemy(enemyType, e.clientX, supply);
-		sendCounter++;
 	});
 
 	$('#clear_all_button').on('click', function() {
@@ -165,15 +168,15 @@ function step() {
 	} else {
 		if (keyMap[49]) {
 			enemyType = "enemyA";
-			$("#state_display").text("Enemy A");
+			$("#state_display").text("1 - Enemy A");
 		}
 		if (keyMap[50]) {
 			enemyType = "enemyB";
-			$("#state_display").text("Enemy B");
+			$("#state_display").text("2 - Enemy B");
 		}
 		if (keyMap[51]) {
 			enemyType = "enemyC";
-			$("#state_display").text("Enemy C");
+			$("#state_display").text("3 - Enemy C");
 		}
 	}
 		// move enemys
