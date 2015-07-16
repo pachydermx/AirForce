@@ -51,10 +51,10 @@ Communicator.prototype.connect = function(name) {
 	this.socket = new WebSocket(this.url);
 	// TextChatのオブジェクトをコールバック関数で参照できるようにする 
 	var that = this;
-	// clear
-	this.$console.empty();
 	// WebSocketをオープンした時の処理
 	this.socket.onopen = function() {
+		// clear
+		that.sendJsonMsg({type: 'clearAll'});
 		that.outputToConsole('WebSocket opened.', 'salmon');
 		// UI状態を更新する
 		that.updateUICallback();
@@ -77,6 +77,8 @@ Communicator.prototype.connect = function(name) {
 
 Communicator.prototype.disconnect = function() {
 	if (this.socket != null) {
+		// clear
+		this.sendJsonMsg({type: 'clearAll'});
 		this.socket.close();
 		this.socket = null;
 	} else {

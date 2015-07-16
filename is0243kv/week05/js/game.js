@@ -2,8 +2,9 @@ var enemys = new objectList();
 var playerBullets = new objectList();
 var enemyBullets = new objectList();
 var supplyItems = new objectList();
-var keyMap = {87: false, 83: false, 65: false, 68:false, 74: false};
+var keyMap = {87: false, 83: false, 65: false, 68:false, 74: false, 49: false, 50: false, 51: false};
 // w - 87, s - 83, a - 65, d - 68
+// 1 - 49, 2 - 50, 3 - 51
 // j - 74
 var frameTimer;
 var frameRate = 60;
@@ -15,8 +16,6 @@ var game;
 var enemy_freq = 200; 
 var score = 0;
 var isPlayer = false;
-// [enemyType, appearTime, bonus, x, speedX]
-// x in [0, 100]
 
 $(document).ready(function () {
 	$(window).keydown( function (e) {
@@ -76,27 +75,26 @@ $(document).ready(function () {
 		player.dom.hide();
 
 		communicator.connect($('#name').val());
+		
+		start_loop();
 	});
 
 	// connect as invader
 	$('#connect_button').on('click', function() {
 		communicator.connect($('#name').val());
+		
+		start_loop();
 	});
 
 	$('#disconnect_button').on('click', function() {
 		communicator.disconnect();
+		// stop loop
+		clearInterval(frameTimer);
 	});
 
 	$('#send_button').on('click', function() {
 		//sendMessage();
 		sendEnemy('enemyA');
-	});
-
-	$('#message').on('keypress', function(event) {
-		// エンターキーを入力した時にメッセージを送る
-		if (event.keyCode == 13) {
-			sendMessage();
-		}
 	});
 
 	$('#clear_all_button').on('click', function() {
@@ -112,7 +110,6 @@ $(document).ready(function () {
 	// ボタンの表示を更新する
 	updateButtons();
 
-	start_loop();
 
 });
 
