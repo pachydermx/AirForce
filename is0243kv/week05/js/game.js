@@ -17,6 +17,7 @@ var enemy_freq = 200;
 var score = 0;
 var isInvader = false;
 var enemyType = "enemyA";
+var sendCounter = 0;
 
 $(document).ready(function () {
 	$(window).keydown( function (e) {
@@ -62,11 +63,12 @@ $(document).ready(function () {
 
 	communicator = new Communicator(url, console, updateButtons);
 	
-	function sendEnemy(enemyType, enemyPosition) {
+	function sendEnemy(enemyType, enemyPosition, supply) {
 		communicator.sendJsonMsg({
 			type: 'enemy',
 			enemy: enemyType,
-			position: enemyPosition
+			position: enemyPosition,
+			supply: supply
 		});
 	}
 
@@ -99,7 +101,14 @@ $(document).ready(function () {
 	});
 	
 	$("#game").on('click', function (e) {
-		sendEnemy(enemyType, e.clientX);
+		var supply = "null";
+		if (sendCounter % 3 == 0){
+			supply = "health";
+		} else if (sendCounter % 5 == 0){
+			supply = "weapon";
+		}
+		sendEnemy(enemyType, e.clientX, supply);
+		sendCounter++;
 	});
 
 	$('#clear_all_button').on('click', function() {

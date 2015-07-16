@@ -21,15 +21,13 @@ Communicator.prototype.sendJsonMsg = function(jsonMsg) {
 	if (this.socket != null && this.socket.readyState === 1) {
 		jsonMsg.from = this.from;
 		this.socket.send(JSON.stringify(jsonMsg));
-	} else {
-		alert("WebSocket is not opened");
 	}
 };
 
 // 受信したJSON形式のメッセージを処理する
 Communicator.prototype.handleJsonMsg = function(jsonMsg) {
 	if (jsonMsg.type === 'enemy') {
-		add_enemy(jsonMsg.enemy, jsonMsg.position, 'weapon');
+		add_enemy(jsonMsg.enemy, jsonMsg.position, jsonMsg.supply);
 		this.sendJsonMsg({type: 'clearAll'});
 	} else if (jsonMsg.type === 'clearAll') {
 		this.$console.empty();
@@ -82,7 +80,5 @@ Communicator.prototype.disconnect = function() {
 		this.sendJsonMsg({type: 'clearAll'});
 		this.socket.close();
 		this.socket = null;
-	} else {
-		alert('WebSocket is not opened.');
 	}
 };
